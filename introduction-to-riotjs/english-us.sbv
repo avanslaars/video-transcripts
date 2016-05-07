@@ -1,0 +1,738 @@
+0:00:00.620,0:00:05.700
+Hello my name is Andrew Van Slaars and this video is and introduction to RiotJS
+
+0:00:05.700,0:00:11.180
+a lightweight, react-like UI library that allows you to create your own custom tags
+
+0:00:12.580,0:00:15.000
+In this introductory video we will cover
+
+0:00:17.020,0:00:20.240
+how to get riot installed and up and running on your page
+
+0:00:21.540,0:00:24.020
+how to create and compile a custom tag
+
+0:00:25.160,0:00:29.480
+how to get data into your tag and how to use that data in expressions
+
+0:00:30.160,0:00:34.960
+and how to create a tag that allows user interaction through a basic form
+
+0:00:36.400,0:00:40.160
+now let's get our environment setup and get into the code
+
+0:00:40.560,0:00:42.960
+let's take a look at my initial setup
+
+0:00:42.960,0:00:48.620
+I'm using atom as my code editor but use whatever tool you are most comfortable with if you're going to follow along
+
+0:00:48.620,0:00:53.280
+I've created a root directory for the project and have atom pointed at that
+
+0:00:53.280,0:00:58.460
+I also have a terminal window open to that root directory and of course I'm running chrome
+
+0:00:58.460,0:00:59.980
+so we can see the results of our work
+
+0:01:00.660,0:01:04.040
+let's do a little bit of setup and then we can get into the code
+
+0:01:04.040,0:01:08.300
+You will need Node installed so we can install modules through NPM
+
+0:01:08.540,0:01:12.940
+If you don't already have that setup, you can do that on nodejs.org
+
+0:01:12.940,0:01:15.080
+by clicking the green install button
+
+0:01:15.940,0:01:18.660
+let's install some node modules with NPM
+
+0:01:19.380,0:01:26.180
+First we want to install the riot CLI by typing npm install dash g riot
+
+0:01:26.720,0:01:30.480
+this is going to give us the command line interface we need to compile our tags
+
+0:01:31.480,0:01:35.400
+we'll also be using a simple HTTP server to serve up our page
+
+0:01:35.640,0:01:37.560
+we can set that up by typing in
+
+0:01:37.960,0:01:42.980
+NPM install dash g HTTP hyphen server
+
+0:01:45.380,0:01:48.100
+and if you don't already have bower setup
+
+0:01:49.080,0:01:52.440
+you can add that by running npm install dash g bower
+
+0:01:55.880,0:02:02.520
+and now with bower installed we can add the riot js files to our project by running bower install riot
+
+0:02:02.520,0:02:07.640
+and you'll see that this has created a bower components directory in the project
+
+0:02:08.180,0:02:11.300
+now the riot js files are available for us to use
+
+0:02:15.500,0:02:22.500
+now that we have all of our files in place, let's take a quick look at the HTML file that we'll be starting with
+
+0:02:23.580,0:02:25.980
+as you can see, it's a basic HTML page
+
+0:02:25.980,0:02:28.080
+there's a heading one that's just static content
+
+0:02:28.100,0:02:33.860
+and I have a script tag that points to the riot.min.js file inside the bower components
+
+0:02:33.860,0:02:38.680
+and then there's an empty set of script tags the that we're going to use to add our own code
+
+0:02:38.860,0:02:42.140
+let's fire up the server we installed a moment ago
+
+0:02:42.300,0:02:45.380
+by typing in http dash server
+
+0:02:46.740,0:02:48.820
+and now that our server is running
+
+0:02:48.960,0:02:50.920
+let's load our page in a browser
+
+0:02:51.500,0:02:53.660
+and our page should load right up
+
+0:02:53.660,0:02:58.360
+now I'm just going to keep the web server running and open a new tab in the console
+
+0:02:58.360,0:03:01.500
+so we have that available to run our commands when we get to them
+
+0:03:02.180,0:03:05.380
+let's get started creating our first custom tag
+
+0:03:05.380,0:03:11.620
+the first thing we need to do is create a file to store our tag definition so I'm going to add that to the tags directory
+
+0:03:17.680,0:03:21.460
+and I'm going to name my tag hello dash world dot tag
+
+0:03:24.920,0:03:29.320
+we'll start by wrapping the definition in the tag we want to create
+
+0:03:33.200,0:03:38.000
+now that we have the shell for the tag in place, let's give it some content
+
+0:03:41.620,0:03:44.980
+and that's enough to give us a basic tag definition
+
+0:03:49.860,0:03:52.500
+riot tags are compiled into javascript
+
+0:03:52.500,0:03:57.400
+there is an option to include this compiler and allow the compilation step to happen in the browser
+
+0:03:57.720,0:03:59.240
+but for these examples
+
+0:03:59.480,0:04:01.880
+we're going to pre-compile our tags
+
+0:04:02.360,0:04:06.440
+for this we'll use the riot CLIwe installed earlier using NPM
+
+0:04:07.140,0:04:09.860
+we'll start by typing in the riot command
+
+0:04:09.860,0:04:12.400
+and then we'll tell riot what to compile
+
+0:04:16.960,0:04:20.960
+and we'll see that riot has taken our hello world dot tag file
+
+0:04:21.320,0:04:25.080
+and created a hello world dot js file in the same location
+
+0:04:25.080,0:04:27.960
+let's take a look at the result of that compilation
+
+0:04:30.560,0:04:35.840
+our javascript file contains a simple call to the tag method that riot provides
+
+0:04:36.000,0:04:42.880
+its first argument is the name of the tag, the second is a string that represents the template for our tag
+
+0:04:42.880,0:04:45.540
+and the third is a function that takes an options argument
+
+0:04:46.180,0:04:48.980
+now let's wire up our page to use our tag
+
+0:04:49.960,0:04:51.720
+back in index dot html
+
+0:04:52.200,0:04:55.960
+I need to add a script tag that points to hello world dot js
+
+0:05:03.520,0:05:05.920
+we also need to add our tag to the page
+
+0:05:12.740,0:05:19.700
+and finally we need to add a call to the mount method that riot provides to tell it to load the tag on the page
+
+0:05:26.240,0:05:28.320
+now that we have our tag defined
+
+0:05:28.920,0:05:31.240
+our script references are in place
+
+0:05:31.240,0:05:36.560
+and we've made a call to riot's mount method to tell it to load onto the page, let's take a look at it in the browser
+
+0:05:38.120,0:05:44.420
+and when we refresh the page in the browser, we should see our hello world content from our custom tag
+
+0:05:46.360,0:05:51.700
+so we've created a custom tag but it's only displaying static content so it's not very useful
+
+0:05:51.700,0:05:57.060
+let's look at how we can make our tag a little bit more interesting by passing it some data to display
+
+0:05:57.820,0:06:03.180
+let's say I want my tag to take a property called greet with a name to display as part of our message
+
+0:06:03.260,0:06:04.780
+it would look like this
+
+0:06:08.840,0:06:13.080
+now my tag has a greet attribute and I've passed it the value John
+
+0:06:13.320,0:06:18.840
+and what I'd like is for the output of the tag to say hello john instead of hello world
+
+0:06:20.560,0:06:27.200
+in order to use this value as part of the display we'll need to update our tag file to use an expression
+
+0:06:29.720,0:06:34.860
+in my hello world tag file I'm going to replace world with an expression
+
+0:06:36.940,0:06:38.740
+that calls opts dot greet
+
+0:06:38.740,0:06:44.300
+if you remember from earlier, opts is the name of the argument that's passed into the function
+
+0:06:44.600,0:06:48.120
+that we saw as the third argument in riot's tag method
+
+0:06:48.120,0:06:50.200
+now that we've added our expression
+
+0:06:50.200,0:06:52.680
+let's make sure all of our files are saved
+
+0:06:52.940,0:06:54.780
+and we can recompile our tag
+
+0:06:54.780,0:07:00.700
+we'll run the same riot command that we did before. passing it tags slash hello world dot tag
+
+0:07:01.000,0:07:02.940
+it'll replace our javascript file
+
+0:07:03.700,0:07:07.620
+and now when we look in the browser, we should see hello john
+
+0:07:07.620,0:07:14.420
+and as you can see, it's as easy as creating an attribute and adding an expression to pass a value into our custom tag
+
+0:07:14.420,0:07:18.160
+we can also pass data into our tags using riot's mount method
+
+0:07:18.160,0:07:21.400
+if we remove the greet attribute from our hello world tag
+
+0:07:23.000,0:07:25.160
+and then update our mount method
+
+0:07:25.240,0:07:29.160
+to pass in an object that has a greet property
+
+0:07:29.940,0:07:31.780
+we should see our tag render
+
+0:07:32.280,0:07:34.040
+with the message hello joe
+
+0:07:35.620,0:07:36.420
+and it works
+
+0:07:36.420,0:07:41.600
+note that we didn't do a recompile this time. Nothing in our tag definition changed
+
+0:07:41.600,0:07:44.100
+we just passed in the value a different way
+
+0:07:44.100,0:07:47.840
+now let's say we had a reason to put two of these tags on our page
+
+0:07:48.380,0:07:50.780
+I'm going to copy the hello world tag
+
+0:07:50.900,0:07:52.100
+paste a second one
+
+0:07:52.400,0:07:54.800
+save my file and refresh the browser
+
+0:07:55.540,0:07:58.980
+and we should see two hello joe messages printed out
+
+0:07:58.980,0:08:03.560
+when riot mounts the tag it's going to pass the data into each instance
+
+0:08:03.560,0:08:08.560
+if instead of passing data in the mount method we gave each instance of this tag its own attribute
+
+0:08:09.180,0:08:11.500
+we should see two different values
+
+0:08:11.500,0:08:12.580
+so let's check that out
+
+0:08:13.140,0:08:16.340
+I'll remove the value that I'm passing into moun
+
+0:08:17.060,0:08:20.500
+and then I'm going to give each tag a greet attribute
+
+0:08:25.280,0:08:27.600
+and again I'll refresh the browser
+
+0:08:27.600,0:08:33.780
+and you'll notice that each tag prints out the value that was passed to its specific greet attribute
+
+0:08:33.780,0:08:37.260
+now let's say we have a third instance of the hello world tag
+
+0:08:37.260,0:08:39.660
+but this time we're not going to give it an attribute value
+
+0:08:44.240,0:08:49.680
+when Ilook at that in the browser, my third instance just says hello and has no name
+
+0:08:49.680,0:08:53.160
+if I go back and pass an object to the mount method again
+
+0:08:53.160,0:08:57.460
+my tag that doesn't have an attribute will use this as the default value
+
+0:08:58.200,0:09:01.240
+you'll notice that my third tag says hello joe
+
+0:09:01.240,0:09:03.280
+it's pulling that value from the mount method
+
+0:09:03.640,0:09:07.080
+and the first two tags are using the attribute value
+
+0:09:07.080,0:09:12.080
+so passing this object into the mount method is a great way to set default values
+
+0:09:12.080,0:09:15.420
+and then you can override them with attributes on specific tags
+
+0:09:15.440,0:09:22.440
+showing data is helpful but if you're going to make anything interactive you'll need to accept input from users as well
+
+0:09:22.440,0:09:25.540
+let's create a new tag that incorporates a form
+
+0:09:26.260,0:09:28.660
+to stick with our super simple hello world theme
+
+0:09:28.660,0:09:34.040
+we'll create a tag with a single input that allows a user to type in the name portion of our greeting
+
+0:09:34.780,0:09:36.540
+let's create a new tag file
+
+0:09:42.220,0:09:44.540
+and we'll call it hello form dot tag
+
+0:09:49.680,0:09:53.600
+and the tag we're going to want to use will be hello dash form
+
+0:09:57.040,0:10:02.800
+inside our hello form tag we'll need a form which we can define with a standard HTML form
+
+0:10:05.640,0:10:08.120
+and we'll give our form a single input
+
+0:10:12.420,0:10:13.940
+and we'll give it a name
+
+0:10:16.580,0:10:17.080
+greet
+
+0:10:21.320,0:10:24.760
+and in order to submit our form we'll give it a button
+
+0:10:30.860,0:10:35.800
+and when we submit the form we want a message to be displayed with the name that was input
+
+0:10:37.420,0:10:38.860
+so let's add a message
+
+0:10:42.280,0:10:46.040
+we're going to need to use an expression to put our name in
+
+0:10:49.680,0:10:53.200
+now what we need to do is define the action for our form
+
+0:10:53.200,0:10:54.960
+because right now won't do anything
+
+0:10:56.580,0:11:03.580
+and we need to setup our mapping from our hello input to the this dot greeting variable that we put in our expression
+
+0:11:03.580,0:11:07.420
+to do this I'm going to add a set of script tags at the bottom of my tag
+
+0:11:09.920,0:11:16.320
+and inside the script tags I'm going to define a function that will act as my form's event handler
+
+0:11:21.300,0:11:27.540
+inside this function I'm going to take the greet input value and assign it to this dot greeting
+
+0:11:31.860,0:11:36.500
+and now I need to attach this function to the form as its submit handler
+
+0:11:41.920,0:11:45.840
+now that our tag is setup we're going to need to compile it so we can add it to our page
+
+0:11:45.900,0:11:48.300
+since we now have multiple tag files
+
+0:11:48.300,0:11:53.620
+let's look at a way to use the compiler to compile all of our tags into a single javascript file
+
+0:11:53.640,0:11:58.680
+when we run the riot command to compile a tag our first argument is the source
+
+0:11:58.920,0:12:01.080
+we can pass just a directory name
+
+0:12:01.080,0:12:06.740
+and riot will find all of the tag files in that directory and compile them all to javascript
+
+0:12:06.740,0:12:10.460
+so let's run the riot command and point it to the tags directory
+
+0:12:12.400,0:12:19.400
+Iwant to make the second argument the name of my output javascript file so that all of my tags end up in a single output
+
+0:12:20.980,0:12:27.460
+and when I run this, it'll take all of the tags in the tags directory, compile them into javascript
+
+0:12:27.880,0:12:30.120
+and the output will be in all dot js
+
+0:12:32.040,0:12:34.760
+and you'll see it has created our new file
+
+0:12:35.920,0:12:37.520
+we can take a look at that
+
+0:12:37.520,0:12:43.980
+and you'll notice that the hello form tag definition has our say hello function defined inside of it
+
+0:12:45.180,0:12:49.420
+now that we have our tags all defined in a single javascript file
+
+0:12:49.420,0:12:53.220
+let's update index dot html to point to our new javascript output
+
+0:12:58.480,0:13:02.860
+now that we've updated that we're also going to need to reference our new tag on the page
+
+0:13:07.800,0:13:10.840
+and we'll need to tell riot to mount our new tag
+
+0:13:16.320,0:13:21.680
+and now that we've done that let's taek a look in the browser and see our new output
+
+0:13:25.020,0:13:29.740
+and you'll see that we now have a single input our button that says hello
+
+0:13:29.940,0:13:32.020
+and the start of a hello message
+
+0:13:33.840,0:13:35.600
+Ican put a value in the form
+
+0:13:38.520,0:13:42.280
+and when I submit the form it'll update my output message
+
+0:13:42.280,0:13:46.840
+you'll notice that even though it took my value from the form and put it into my output
+
+0:13:46.840,0:13:49.220
+it still left that value in the input
+
+0:13:49.220,0:13:50.160
+let's go clean that up
+
+0:13:52.600,0:13:54.280
+back in my tag definition
+
+0:13:55.280,0:13:57.360
+I'm going to update my function
+
+0:13:57.800,0:14:01.820
+to clear out this dot greet
+
+0:14:04.900,0:14:06.100
+and I'll save that
+
+0:14:06.100,0:14:09.440
+now that I've made an update I'm going to need to recompile my tags
+
+0:14:09.440,0:14:12.760
+so this time let's tell riot to just watch the tags directory
+
+0:14:12.760,0:14:17.060
+and every time it sees a change I'm going to have it recompile the javascript
+
+0:14:19.260,0:14:26.060
+we do that by running the same command we used last time and this time we'll pass it the w switch for watch
+
+0:14:26.360,0:14:31.560
+it'll recompile the tags and you'll notice that it now says that it's watching
+
+0:14:31.560,0:14:35.120
+for all the files with a tag extension in the tags directory
+
+0:14:35.120,0:14:39.620
+and with our tag recompiled with our new change let's go to the browser and take a look
+
+0:14:47.300,0:14:50.180
+and that didn't work let's take a look at why
+
+0:14:51.860,0:14:58.340
+okay the reason that didn't work is I assigned the empty string to greet instead of greet dot value
+
+0:14:58.340,0:14:59.600
+so let's update that
+
+0:15:01.440,0:15:01.940
+save it
+
+0:15:01.960,0:15:05.480
+you'll see that our watch recompiles our javascript
+
+0:15:06.780,0:15:08.460
+Ican refresh the browser
+
+0:15:09.120,0:15:10.220
+type in a name
+
+0:15:11.580,0:15:13.500
+and now it updates my message
+
+0:15:13.500,0:15:14.800
+and clears out the form field
+
+0:15:15.560,0:15:18.600
+alright when we look at this new tag we created
+
+0:15:18.600,0:15:25.040
+you might notice that my output is essentially doing the same thing that my original hello world tag does
+
+0:15:25.040,0:15:29.860
+the nice thing about riot is that it allows us to compose our application by nesting tags
+
+0:15:29.860,0:15:33.240
+so I'm going to replace this h three with my greeting
+
+0:15:33.700,0:15:36.920
+and pass it an instance of my hello world tag
+
+0:15:45.260,0:15:48.300
+when I save that the watch shoudl recompile it
+
+0:15:48.620,0:15:51.480
+and when Igo back to the browser and refresh
+
+0:15:53.300,0:15:55.940
+I can go in here and I can pass it a new name
+
+0:15:56.560,0:15:57.760
+and it still works
+
+0:15:57.760,0:16:02.360
+but the nice thing about this is if I decide I want to change my hello world tag
+
+0:16:04.500,0:16:08.340
+say we make that a little smaller by changing it to an h five
+
+0:16:09.060,0:16:09.920
+I save it
+
+0:16:10.400,0:16:11.840
+the watch recompiles
+
+0:16:13.480,0:16:20.480
+and when I refresh, it'll be updated everywhere  I reference hello world including inside of the hello form tag
+
+0:16:23.320,0:16:24.920
+everythign still works
+
+0:16:24.920,0:16:30.760
+and now that hello world tag allows me to make changes in one place and they get cascaded through wherever it's used
+
+0:16:31.640,0:16:35.000
+alright let's make one more change to our hello form tag
+
+0:16:35.220,0:16:36.660
+I'm going to go in here
+
+0:16:37.620,0:16:42.660
+and I really don't my hello world tag to be displayed when all it says is hello
+
+0:16:42.840,0:16:47.480
+so I'd like to hide this until the this dot greeting value is populated
+
+0:16:48.680,0:16:51.720
+riot gives us a built in attribute called show
+
+0:16:53.180,0:16:55.180
+we can pass that an expression
+
+0:16:57.040,0:17:03.200
+this expression will look at this dot greeting and if it's a falsey value so undefined or null
+
+0:17:03.880,0:17:05.960
+then show will hide our element
+
+0:17:05.960,0:17:09.000
+and if it's a truthy value, meaning it's populate
+
+0:17:09.840,0:17:12.320
+hello world will display the message
+
+0:17:12.320,0:17:13.920
+so let's take a look at that
+
+0:17:16.540,0:17:18.220
+I can refresh the browser
+
+0:17:18.760,0:17:21.960
+and you'll see that hello is no longer displayed
+
+0:17:21.960,0:17:23.300
+so if I put a name in here
+
+0:17:24.940,0:17:26.140
+and submit my form
+
+0:17:26.140,0:17:28.360
+it'll populate this dot greeting
+
+0:17:28.360,0:17:30.300
+and display the hello world tag
+
+0:17:31.400,0:17:33.720
+one of riot's strengths is brevity
+
+0:17:34.580,0:17:39.700
+it has a very small API a small file size and it allows us to write succinct code
+
+0:17:39.800,0:17:44.120
+so let's go look at our tag one more time and clean it up a little bit
+
+0:17:46.500,0:17:51.300
+my say hello function that I'm using as an event handler can be shortened
+
+0:17:52.920,0:17:55.600
+by removing the function
+
+0:17:58.620,0:17:59.900
+and the call to this
+
+0:18:00.000,0:18:01.400
+and Ican save this
+
+0:18:03.380,0:18:04.880
+it'll be recompiled
+
+0:18:04.880,0:18:08.460
+when I refresh my browser I'll see that it doesn't work
+
+0:18:08.460,0:18:10.300
+because I forgot the parenthesis
+
+0:18:12.440,0:18:16.940
+so I can shorten my function to say hello with opening and closing parenthesis
+
+0:18:19.180,0:18:20.760
+my tags will load
+
+0:18:22.160,0:18:23.920
+and my form will still work
+
+0:18:23.960,0:18:26.120
+the other thing I can do with riot
+
+0:18:26.540,0:18:28.380
+is leave out the script tags
+
+0:18:31.640,0:18:35.480
+when I recompile that and go back to my browser and refresh
+
+0:18:35.540,0:18:39.940
+notice my hello world tags still show up and Ican type a name in here
+
+0:18:42.560,0:18:44.080
+and my form still works
+
+0:18:44.540,0:18:47.100
+if we look at our compiled javascript
+
+0:18:47.260,0:18:50.940
+even though I left out the this and the keyword function
+
+0:18:51.280,0:18:54.160
+riots compilation step put it back in for me
+
+0:18:56.740,0:18:59.120
+Ilike to put the script tags in
+
+0:19:07.560,0:19:13.320
+I do like the abbreviated function definition syntax though so I'll keep that in there
+
+0:19:14.440,0:19:16.520
+we didn't do anythign too crazy
+
+0:19:16.580,0:19:18.740
+but this is a good starting point
+
+0:19:18.740,0:19:23.220
+if you were looking for something more advanced Ido plan on creating more videos like this
+
+0:19:23.220,0:19:26.580
+and to continue adding to the complexity as the videos progress
+
+0:19:26.580,0:19:32.260
+thanks for watching and if you have any feedback or suggestions I'd love to hear what you have to say
+

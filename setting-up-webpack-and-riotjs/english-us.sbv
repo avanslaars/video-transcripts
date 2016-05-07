@@ -1,0 +1,375 @@
+0:00:00.000,0:00:04.130
+hello my name is Andrew Van Slaars
+and this is a quick walkthrough of how
+
+0:00:04.130,0:00:10.719
+to configure riot js to work with
+webpack. If you're not familiar with riot js
+
+0:00:10.719,0:00:15.980
+you might want to check out my
+previous videos to get you started.
+
+0:00:15.980,0:00:17.220
+in this video
+
+0:00:17.220,0:00:20.460
+we're going to cover getting webpack
+and the dependencies we will be using
+
+0:00:20.460,0:00:27.619
+installed via MPN setting up the web a
+configuration file process are tagged in
+
+0:00:27.619,0:00:33.520
+javascript files and serving a page with
+our bundled assets through webpack's
+
+0:00:33.520,0:00:38.430
+development server. let's get our
+environment setup. I've created an empty
+
+0:00:38.430,0:00:42.469
+directory for this project and I have
+both atom and terminal window pointed to
+
+0:00:42.469,0:00:47.879
+that directory so let's get started.
+because we're going to be using NPM
+
+0:00:47.879,0:00:53.960
+modules we're going to start with an MPN in
+it and we're going to pass at the white
+
+0:00:53.960,0:00:57.629
+flag so it takes the default so we don't
+have to press enter for each one
+
+0:00:58.730,0:01:11.610
+and now I'm gonna NPM install webpack
+passing it perceived flag now that we're
+
+0:01:11.610,0:01:19.160
+packs installed and NPM install again at
+the saved a flag web pack of service in
+
+0:01:19.160,0:01:22.890
+order for webpack's process for dot tag
+files that were going to use for Ryan
+
+0:01:22.890,0:01:30.890
+we're gonna install a tackler NPM
+install saved as tagged loader
+
+0:01:38.550,0:01:43.200
+where are they going to install the
+battle over again so we're packing
+
+0:01:43.200,0:01:49.570
+process or javascript files where we may
+choose to use yes six her yes 2015
+
+0:01:49.570,0:02:00.200
+syntax babble order has a couple of
+dependencies so I'm p.m. in star Jan C
+
+0:02:14.940,0:02:22.190
+uses this concept of presets so install
+the preset for yes 2015
+
+0:02:26.360,0:02:33.490
+and of course we want to set up right so
+we're gonna NPM install safe right
+
+0:02:41.620,0:02:44.600
+if we look at packaged
+
+0:02:44.600,0:02:49.910
+has been installed as a dependency and
+web packed with Pakistan server are
+
+0:02:49.910,0:02:56.100
+loaders are powerful dependencies have
+been installed as dead dependencies so
+
+0:02:56.100,0:02:59.830
+we're ready to get moving then next
+thing we're going to want to do is
+
+0:02:59.830,0:03:05.910
+create our web a configuration file so
+in the terminal I just hope that in
+
+0:03:05.910,0:03:17.850
+touch where pack that config that chess
+open that file up and atom and the first
+
+0:03:17.850,0:03:22.510
+thing we're going to do is we're going
+to reference newspass mitral
+
+0:03:29.800,0:03:30.800
+an asset
+
+0:03:30.800,0:03:35.400
+exports to equal an object literal and
+the first property we're gonna give that
+
+0:03:35.400,0:03:41.010
+objects as entry and that's gonna tell
+web back what file to use as our entry
+
+0:03:41.010,0:03:48.380
+point so you see here are pointing to
+source indexed at Jas and will create
+
+0:03:48.380,0:03:53.290
+that file once we're done with the
+configuration or second properties
+
+0:03:53.290,0:04:04.390
+output and output as an object and
+output has a pet property gonna set to
+
+0:04:04.390,0:04:12.810
+the current directory name and a
+property that we're gonna set to bundle
+
+0:04:12.810,0:04:19.230
+Jas and this is going to be the file
+name would pack outputs with all of our
+
+0:04:19.230,0:04:22.230
+bundle JavaScript
+
+0:04:28.340,0:04:30.500
+next we'll create a module
+
+0:04:30.500,0:04:33.500
+bernie is also going to be an object
+
+0:04:35.440,0:04:42.540
+and their object is going to take a
+lawyer's array and each letter is an
+
+0:04:42.540,0:04:50.140
+object will start with the Babel order
+to create object in the first property
+
+0:04:50.140,0:04:54.270
+we're going to give it a test and test
+is going to take a red X that's kind of
+
+0:04:54.270,0:05:02.240
+point basically tell us which files to
+process so in this case we're gonna want
+
+0:05:02.240,0:05:08.320
+anything that ends in t.j s second
+property is gonna be the loader itself
+
+0:05:08.320,0:05:14.060
+as we say hey point anything with a.j s
+extension and use the battle over on
+
+0:05:14.060,0:05:18.190
+that but we want to make sure that we're
+not trying to process everything in the
+
+0:05:18.190,0:05:22.690
+note modules directory so we're gonna
+pass note modules to the exclusive
+
+0:05:22.690,0:05:29.720
+property and babble also has a constant
+the presets that we saw we were
+
+0:05:29.720,0:05:35.090
+installing or dependencies so we're
+gonna pass a query object query object
+
+0:05:35.090,0:05:42.330
+is going to take a preset array and
+we're going to have that are he has 2015
+
+0:05:46.280,0:05:51.330
+and now we need to configure the tag
+loader so it's going to follow the same
+
+0:05:51.330,0:05:57.150
+pattern so have a test that's what files
+to process this case we use anything
+
+0:05:57.150,0:06:06.050
+that ends with that tag the letter to
+use on those files and that's going to
+
+0:06:06.050,0:06:09.050
+be our tag loader
+
+0:06:14.409,0:06:19.399
+and we want to make sure we're not
+processing the note modules directory so
+
+0:06:19.399,0:06:22.399
+I exclude that
+
+0:06:24.300,0:06:25.920
+we can see
+
+0:06:25.920,0:06:31.550
+and that pretty much handles our
+configuration for the setup now we're
+
+0:06:31.550,0:06:35.550
+gonna go into package that JSON and
+we're gonna set up our scripts so that
+
+0:06:35.550,0:06:41.180
+we can run the web packed up sir so take
+that placeholder test script that they
+
+0:06:41.180,0:06:45.660
+put in there will remain that death or
+glory place the content of that with a
+
+0:06:45.660,0:06:55.230
+call to web pack that server we can say
+that they're gonna create that source
+
+0:06:55.230,0:06:59.900
+directory that we pointed to in our web
+pack configuration and I'm going to
+
+0:06:59.900,0:07:07.600
+create an index JSP file in there that's
+going to be our entry point and in the
+
+0:07:07.600,0:07:13.520
+root directory I'm also gonna create an
+index HTML file and I'm gonna throw a
+
+0:07:13.520,0:07:17.760
+basic shelves HTML in there and give
+that a title
+
+0:07:23.160,0:07:28.540
+and in the body and then had a script
+tag that points to fund all that chaos
+
+0:07:28.540,0:07:34.720
+and you'll remember that's the output
+that we told went back to create our
+
+0:07:34.720,0:07:37.620
+source files
+
+0:07:37.620,0:07:41.370
+an accredited tags directory inside the
+source folder
+
+0:07:42.050,0:07:45.360
+this is where we're going to put our
+riot tanks so create a new file there
+
+0:07:45.360,0:07:58.960
+and just for demonstration purposes will
+create a sample output will call sample
+
+0:07:58.960,0:08:07.400
+output as a root element will throw in
+h1 in there will say hello again right
+
+0:08:07.400,0:08:14.440
+jus gotta go back to index HTML and as a
+reference to that
+
+0:08:19.190,0:08:21.270
+now we need to set
+
+0:08:21.270,0:08:27.200
+he's so we can mount that tag to the
+page so in indexed at Jas I'm gonna
+
+0:08:27.200,0:08:35.850
+create a variable Ryan and I'm gonna
+pointed to the riot nude model also
+
+0:08:35.850,0:08:44.390
+gonna require my tag file a sign that to
+a variable because I don't need to
+
+0:08:44.390,0:08:48.810
+reference said through variable I just
+need to make sure that the script is
+
+0:08:48.810,0:08:53.360
+included on the page when everything
+gets bundled together and now added
+
+0:08:53.360,0:08:58.550
+document that a defenseless player for
+the DOM content cohort event just to
+
+0:08:58.550,0:09:04.000
+make sure my pages been fully loaded in
+the car back for that i'm gonna call
+
+0:09:04.000,0:09:16.660
+right now has a sample output I can say
+that back in the terminal I can use that
+
+0:09:16.660,0:09:26.590
+and p.m. script that I added earlier by
+typing in and him run does well we
+
+0:09:26.590,0:09:32.820
+should see that all run through web pack
+in a lit up the web packed app server or
+
+0:09:32.820,0:09:38.620
+create a bundle and you'll see that it's
+processed our index such a ass right Jas
+
+0:09:38.620,0:09:44.180
+and our sample output that tag and that
+we can see this through localhost 8080
+
+0:09:45.970,0:09:51.019
+and you'll see it's serving our page has
+bundle their assets and showing us her
+
+0:09:51.019,0:09:55.610
+output from Artech not a nice thing
+about what pacs dead server is that it
+
+0:09:55.610,0:10:00.839
+automatically watches for changes in our
+files so if I go into the sample output
+
+0:10:00.839,0:10:09.680
+that tank and I make some changes to
+paragraph of Lorem Ipsum here say there
+
+0:10:09.680,0:10:15.649
+and you'll see that terminal has updated
+and I can also go back into my
+
+0:10:15.649,0:10:23.300
+javascript and because I'm using the
+battler I can use yes yes 2015 a terrace
+
+0:10:23.300,0:10:29.379
+index here and I can see if you will see
+that it updates the bundle and if I go
+
+0:10:29.379,0:10:33.779
+back to the browser and refresh
+everything has been updated so we know
+
+0:10:33.779,0:10:40.370
+it's working thank you for watching hope
+you found this helpful and please check
+
+0:10:40.370,0:10:41.279
+back for future videos

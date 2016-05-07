@@ -1,0 +1,859 @@
+0:00:00.000,0:00:05.400
+hello my name is in defense lawyers and
+this is my third video about writers Jay
+
+0:00:05.400,0:00:10.440
+s in this video we'll take a look at
+riot server-side rendering capabilities
+
+0:00:10.440,0:00:15.490
+with note if you're not already familiar
+with right Jas I recommend you take a
+
+0:00:15.490,0:00:20.340
+look at my first video introduction to
+ride a ass and my second video where we
+
+0:00:20.340,0:00:25.300
+cover news events and callbacks in this
+video we will cover how to create a
+
+0:00:25.300,0:00:32.349
+simple express at had agreed to swig
+tempering engine for express how to
+
+0:00:32.349,0:00:37.370
+render a riot egg on the server and
+included in the response and how to get
+
+0:00:37.370,0:00:41.300
+our pre-rendered tagged continued to
+work as expected once it's been loaded
+
+0:00:41.300,0:00:42.760
+into the browser
+
+0:00:42.760,0:00:48.059
+let's take a look at some code just like
+the previous two videos will be using
+
+0:00:48.059,0:00:53.090
+the atom text senator had a terminal
+window open so we can execute commands
+
+0:00:53.090,0:00:58.370
+terminal and we have a browser so we can
+take a look at our completed work we're
+
+0:00:58.370,0:01:01.600
+going to be building a simple
+notification so to get started we're
+
+0:01:01.600,0:01:09.040
+gonna go into a terminal execute in MGM
+in it and this is gonna ask a series of
+
+0:01:09.040,0:01:10.030
+questions
+
+0:01:10.030,0:01:13.290
+pressing Enter will take the default
+response and that's all we need for this
+
+0:01:13.290,0:01:17.799
+example so I'm just gonna press enter
+the name the version the description and
+
+0:01:17.799,0:01:23.680
+all the way through all the options and
+that's done gonna clear at the terminal
+
+0:01:23.680,0:01:28.500
+running and p.m. and it has created this
+package that JSON file so we can see
+
+0:01:28.500,0:01:34.640
+that all the responses that we took the
+defaults on got loaded into that file so
+
+0:01:34.640,0:01:38.530
+now we're gonna go back to her terminal
+and we need to install some node modules
+
+0:01:38.530,0:01:49.659
+so I'm gonna run NPM install for express
+I'm gonna pass at the same option and if
+
+0:01:49.659,0:01:53.149
+we look up at the editor here we can see
+the note modules holders been created so
+
+0:01:53.149,0:01:59.049
+there's going to be an express folder in
+there and I'm also gonna NPM install
+
+0:01:59.049,0:02:04.020
+Ryan began passing at the same option
+
+0:02:07.220,0:02:14.900
+and I'm gonna install swig which is the
+templating engine that we're going to
+
+0:02:14.900,0:02:30.910
+use inside of our express had to create
+our pages on the server side we can take
+
+0:02:30.910,0:02:38.020
+a look and see that it's been updated to
+show express Ryan sway as dependencies
+
+0:02:38.020,0:02:44.070
+of this application now that we've
+installed the node modules that we need
+
+0:02:44.070,0:02:45.190
+let's get started
+
+0:02:45.190,0:02:51.000
+application at JDS is going to be the
+file that runs our application on the
+
+0:02:51.000,0:02:56.440
+server side is going to use express to
+handle requests and respond with output
+
+0:02:56.440,0:03:00.540
+its gonna go to the page and get
+rendered in the browser so we're going
+
+0:03:00.540,0:03:06.920
+to start off by declaring a few
+variables so far Express is gonna make a
+
+0:03:06.920,0:03:10.800
+call to require till the Express model
+saying things going to happen on the
+
+0:03:10.800,0:03:14.340
+second line with swig and then we're
+going to create a variable called at
+
+0:03:14.340,0:03:20.420
+your gonna set that to equal express
+that singer application needs is a way
+
+0:03:20.420,0:03:25.730
+to handle her request so an express is
+gonna be called a row so we're going to
+
+0:03:25.730,0:03:31.480
+set up a round for the root of our web
+application so we'll see we had at which
+
+0:03:31.480,0:03:38.890
+is referencing our express at . get you
+know it's gonna respond to an HTTP get
+
+0:03:38.890,0:03:43.900
+the forward slashing single quotes there
+is the route that is gonna respond to
+
+0:03:43.900,0:03:49.030
+suggest the root of our application and
+then we have a function callback that
+
+0:03:49.030,0:03:54.580
+accepts your request and response object
+so we need to do two more things and are
+
+0:03:54.580,0:04:00.030
+super simple express application will be
+ready to go so the first thing we need
+
+0:04:00.030,0:04:04.870
+to do is inside our jet handle here we
+need to respond with some kind of
+
+0:04:04.870,0:04:08.680
+content to display in the browser and
+then we need to tell application to
+
+0:04:08.680,0:04:13.360
+actually listen for requests so gonna
+get Adeline inside about get and then
+
+0:04:13.360,0:04:19.090
+one more at the root level of our style
+so response dots and hello world is
+
+0:04:19.090,0:04:20.739
+simply going to respond to this
+
+0:04:20.739,0:04:24.500
+this request for our appt with the words
+hello world
+
+0:04:24.500,0:04:28.410
+no markup new HTML that's fine the
+browser will be able to handle that just
+
+0:04:28.410,0:04:34.349
+a simple test and we have a line that
+says at don't listen or passing in 3000
+
+0:04:34.349,0:04:40.340
+3000 is the port there were gonna listen
+with that employees can go into a second
+
+0:04:40.340,0:04:45.440
+tab and my terminal and I'm just gonna
+tape in node and pass it the name of our
+
+0:04:45.440,0:04:48.620
+style at TJs and press Enter
+
+0:04:48.620,0:04:51.539
+and if we look at the terminal it
+doesn't look like anything's happened
+
+0:04:51.539,0:04:59.090
+but our appt is actually run so gonna go
+to the browser and go to localhost 3007
+
+0:04:59.090,0:05:02.930
+everything goes as expected will see
+hello world in the browser right now we
+
+0:05:02.930,0:05:07.599
+know that's running and make a couple
+changes so go back to my terminal window
+
+0:05:07.599,0:05:12.190
+wherever on that app you'll see that is
+just hanging here are gonna control C to
+
+0:05:12.190,0:05:17.900
+stop yet for running and I want to
+update my code file to give us some kind
+
+0:05:17.900,0:05:23.240
+of indication that the app is actually
+running so in my apt out listen I can
+
+0:05:23.240,0:05:28.050
+pass an optional callback and in a call
+that I'm just gonna throw in a console
+
+0:05:28.050,0:05:34.400
+that loud so that we had an indication
+that the servers running and then I can
+
+0:05:34.400,0:05:39.949
+go into the terminal window and I can
+write a note at Jas again and this time
+
+0:05:39.949,0:05:46.409
+you see a pauses for a second shows a
+server is listening on port 3001 here
+
+0:05:47.110,0:05:51.960
+refresh everything still respond as
+expected gonna go then stabbed the end
+
+0:05:51.960,0:05:58.840
+their console so now we need to tell
+expressed that we wanted to use swings
+
+0:05:58.840,0:06:02.259
+are templating engine and once that's
+done then we can go ahead and set up the
+
+0:06:02.259,0:06:08.340
+template and have our appt respond with
+an actual HTML pitch in order to do that
+
+0:06:08.340,0:06:13.880
+we're going to go into our apt OJS file
+for you to add a line at the top and
+
+0:06:13.880,0:06:19.280
+we're gonna call at . engine we're going
+to pass it she knows a string and then
+
+0:06:19.280,0:06:20.190
+swing
+
+0:06:20.190,0:06:27.270
+render file and this is gonna tell
+express to use wigs render file method
+
+0:06:27.790,0:06:33.140
+to render HMO now needs teller at what's
+his view engine and where to get our
+
+0:06:33.140,0:06:38.830
+templates so we can add two more lines
+both cause to apt outset first home or
+
+0:06:38.830,0:06:41.520
+calling you engine and passing it
+
+0:06:41.520,0:06:44.540
+HTML the second one
+
+0:06:44.540,0:06:50.570
+use directory is going to be a current
+directory name / views so any data views
+
+0:06:50.570,0:06:54.880
+directory and inside that directory
+we're gonna had an index HTML file
+
+0:06:54.880,0:07:01.310
+that's going to represent our index
+template in our index HTML file was a
+
+0:07:01.310,0:07:09.880
+sad the court tags for an HTML file
+ranch a server-side rendering and in the
+
+0:07:09.880,0:07:14.570
+body just throw in each one in there and
+that's enough of a template make sure it
+
+0:07:14.570,0:07:23.010
+works so many go back to TJs we're still
+responding with hello world text so
+
+0:07:23.010,0:07:28.110
+we're gonna change that respondents and
+to respond or render it would simply
+
+0:07:28.110,0:07:28.930
+going to pass it
+
+0:07:28.930,0:07:33.270
+index so this is how we're gonna tell
+expressed to use our index template
+
+0:07:33.270,0:07:40.060
+at startup application again note at Jas
+will see the server is listening on port
+
+0:07:40.060,0:07:45.640
+3000 go back to your browser and refresh
+and will see that we get back
+
+0:07:45.640,0:07:49.950
+hi nice big bold letters showing that
+are each one is rendering means our
+
+0:07:49.950,0:07:59.200
+templates work so let's go ahead and
+control c2 stop here and we'll keep
+
+0:07:59.200,0:08:04.680
+going with their changes we don't have a
+right to get but the end goal here is to
+
+0:08:04.680,0:08:09.330
+create a red tag get it to render on the
+server so that our initial page response
+
+0:08:09.330,0:08:14.520
+comes back with the fully formed HTML
+output from our tag we call render with
+
+0:08:14.520,0:08:15.860
+a riot act on the server
+
+0:08:15.860,0:08:20.530
+the return value of that is going to be
+in HTML string so the first thing we
+
+0:08:20.530,0:08:25.160
+need to do is make sure that we can get
+an HTML string into our template output
+
+0:08:25.160,0:08:31.280
+using a variable in our appt so in our
+and yet we're going to add an HTML
+
+0:08:31.280,0:08:35.130
+string as a variable so here I have RCM
+pls email
+
+0:08:35.130,0:08:36.919
+wills each to
+
+0:08:36.919,0:08:40.860
+this is a test now we need to get that
+into our template so it's good or
+
+0:08:40.860,0:08:47.060
+template file good index HTML and
+underneath our existing h1 we're going
+
+0:08:47.060,0:08:52.380
+to add a variable in the way swing
+handles variables is it encloses that in
+
+0:08:52.380,0:08:58.230
+double curly braces on either side so we
+add tag content this puts a variable
+
+0:08:58.230,0:09:02.930
+called tag content in your template and
+that's gonna get rendered on the serb
+
+0:09:02.930,0:09:07.389
+and now that we have that in place we
+need to go back into at Jas and we need
+
+0:09:07.389,0:09:12.500
+to get that variable in toward template
+what we call response not render we can
+
+0:09:12.500,0:09:17.480
+pass a second optional argument and that
+second argument is an object literal not
+
+0:09:17.480,0:09:21.190
+object literal can contain all of the
+variables with their corresponding
+
+0:09:21.190,0:09:26.269
+values that are gonna get injected into
+our templates opacity in here and we're
+
+0:09:26.269,0:09:31.019
+gonna pass and tagged content with the
+value of our sample HTML variable go
+
+0:09:31.019,0:09:32.730
+ahead and run that and see what happens
+
+0:09:32.730,0:09:43.649
+back in my terminal at Jas tells me it's
+listening I can refresh the browser you
+
+0:09:43.649,0:09:49.140
+will see that our original static
+content is rendered properly but are
+
+0:09:49.140,0:09:54.649
+variable is passed in and the HTML was
+escaped so this is a feature to keep
+
+0:09:54.649,0:09:58.180
+things safe or make sure that you don't
+allow anything malicious to be injected
+
+0:09:58.180,0:10:02.930
+and your pages but in our case we know
+where the contents coming from so we're
+
+0:10:02.930,0:10:08.899
+gonna go ahead and turn that escaping
+functionality off so that we can render
+
+0:10:08.899,0:10:17.360
+the HTML former variable go back into
+the terminal killed that and that are
+
+0:10:17.360,0:10:22.670
+indexed I teach him know we need the
+passive filter into a variable called
+
+0:10:22.670,0:10:27.890
+safe and that's gonna tell swig to
+render that HTML without escaping the
+
+0:10:27.890,0:10:33.959
+tax so with dan in place let's go back
+and read our application one more time
+
+0:10:33.959,0:10:42.300
+the better browser and refresh and this
+time we'll see that our HTML variable
+
+0:10:42.300,0:10:44.790
+content is rendered appropriate
+
+0:10:44.790,0:10:52.650
+gonna go back into the terminal control
+see the application of the terminal and
+
+0:10:52.650,0:10:56.920
+let's move on now that we have our Basic
+Express application running it using the
+
+0:10:56.920,0:11:01.250
+templating engine that we selected that
+can render a template we can pass in a
+
+0:11:01.250,0:11:06.220
+variable of HTML and have it rendered
+properly now we need to go ahead and
+
+0:11:06.220,0:11:10.710
+create a riot back I'm gonna had a file
+from my tank we're just gonna call it
+
+0:11:10.710,0:11:17.330
+hello world in the tag will wrap
+everything in the tag name as I have for
+
+0:11:17.330,0:11:21.610
+simplicity's sake just to start a
+go-ahead will add a message in the tag
+
+0:11:21.610,0:11:26.810
+just a simple static age too little from
+the HelloWorld tak now we need to make
+
+0:11:26.810,0:11:33.280
+some updates to a.j us so we can use our
+price tag on the server so the first
+
+0:11:33.280,0:11:36.900
+thing we'll do is we'll add a riot
+variable with a call to require
+
+0:11:37.430,0:11:44.040
+I'm also gonna have a variable for the
+tag itself so gonna create a variable
+
+0:11:44.040,0:11:50.410
+called hello and I'm gonna call require
+to Hello world . tech notice that I'm
+
+0:11:50.410,0:11:55.340
+using the path in this caller acquire
+because it's not in the node modules
+
+0:11:55.340,0:12:00.920
+folder so I had to tell require where to
+go and find that file know when to go to
+
+0:12:00.920,0:12:05.980
+the code where we assigned our HTML
+string earlier to a variable and replace
+
+0:12:05.980,0:12:12.380
+this with a call to riot render so I
+create a variable tag output and I'm
+
+0:12:12.380,0:12:18.700
+gonna call right out render I get a pass
+a hello which is a reference to the
+
+0:12:18.700,0:12:24.720
+variable that we created up the top and
+that variables are pointing out our tag
+
+0:12:24.720,0:12:30.490
+file I don't go to update object literal
+passenger render to use tag output since
+
+0:12:30.490,0:12:37.050
+that's a new variable name with that
+emplacements runner at refresh the
+
+0:12:37.050,0:12:43.090
+browser and the same will see that the
+page has been updated with our message
+
+0:12:43.090,0:12:48.130
+that we put in the attack when we come
+back down
+
+0:12:48.130,0:12:54.650
+control Seattle occasion whether we know
+that we can render attack on the server
+
+0:12:54.650,0:12:56.510
+yes it is part of our template output
+
+0:12:56.510,0:13:01.040
+wanna go update the tag and start doing
+things a little more exciting than just
+
+0:13:01.040,0:13:06.310
+showing static text so go into hello
+world that tag on it at the output to
+
+0:13:06.310,0:13:10.270
+reference a property owner options
+object in expression just like we've
+
+0:13:10.270,0:13:15.160
+done with previous tags in our other
+videos so decided to say hello comma
+
+0:13:15.160,0:13:20.640
+Hopstop first name now we need to go
+back to our at the JSE's file and make
+
+0:13:20.640,0:13:25.620
+sure that that first name value get into
+our tag so in the past we've done this
+
+0:13:25.620,0:13:31.030
+on the client side we've passed our
+values into riot . mail for the same
+
+0:13:31.030,0:13:35.210
+thing holds true for riots at render
+that we can pass at the tank to render
+
+0:13:35.210,0:13:40.600
+as well as a second argument which is an
+object literal and there's hope as a
+
+0:13:40.600,0:13:47.020
+person named John and with that in place
+or runner ASP and refresh your browser
+
+0:13:47.020,0:13:51.370
+will see that we get hello comment john
+has an output
+
+0:13:52.320,0:14:00.640
+again . the app thank their terminal now
+it's make or take a little more
+
+0:14:00.640,0:14:09.960
+interactive and go back into my tag file
+an input type text name as well so gonna
+
+0:14:09.960,0:14:15.390
+add a button to go along with this input
+will give it a label about eighteen and
+
+0:14:15.390,0:14:20.490
+they need to get that button on click
+event so say on click equals update me
+
+0:14:20.490,0:14:24.720
+and I were gonna need some script tank
+so that we can create the function for
+
+0:14:24.720,0:14:31.400
+update me inside the script tags that
+anti function update name interrupting
+
+0:14:31.400,0:14:35.660
+name function is gonna take the value
+added that text input had a sign a two
+
+0:14:35.660,0:14:40.060
+options that person now that we've
+updated our tag to be a little more
+
+0:14:40.060,0:14:44.920
+interacted we need to compile it for use
+on the client right now the server-side
+
+0:14:44.920,0:14:49.590
+rendering is not gonna load JavaScript
+file into the browser in order for the
+
+0:14:49.590,0:14:53.940
+tag to continue interacting with us so
+we still need to do the steps that we've
+
+0:14:53.940,0:15:00.150
+done in previous videos we run our right
+command to turn this tag file into an
+
+0:15:00.150,0:15:03.540
+output JavaScript file by creating a
+public directories
+
+0:15:11.320,0:15:24.260
+command and I'm going to tell it to put
+my output in tags at Jas inside that
+
+0:15:24.260,0:15:27.900
+public folder will see that it created
+tags ijs
+
+0:15:29.360,0:15:35.530
+I can see it that's the JavaScript
+output for our hello world tank now I
+
+0:15:35.530,0:15:39.680
+need to pay at that Jas to tell it to
+use that public directory that we just
+
+0:15:39.680,0:15:43.640
+created to serve static files so go into
+a tie Jas
+
+0:15:45.230,0:15:52.140
+Adeline at use express that static and
+will pass it the past that public
+
+0:15:52.140,0:15:57.720
+directory no need to go into our index
+HTML template file we need to reference
+
+0:15:57.720,0:16:00.720
+our tags . Jas
+
+0:16:03.410,0:16:08.650
+we're also gonna need a reference to
+write a essay on the client so in this
+
+0:16:08.650,0:16:13.630
+case and just going to use a CDN and
+even though we're rendering are tagged
+
+0:16:13.630,0:16:21.610
+on the server that's not going to do the
+client side mount that we need so we're
+
+0:16:21.610,0:16:26.180
+gonna have a set a script hangs with a
+call to riot up mail now that we have
+
+0:16:26.180,0:16:30.530
+this what's going to happen is the tank
+is going to render on the server is
+
+0:16:30.530,0:16:35.220
+gonna be loaded into the template can be
+pants back down to the browser is part
+
+0:16:35.220,0:16:41.190
+of the response and then a right on man
+is gonna run and it's gonna clear out
+
+0:16:41.190,0:16:46.980
+the options object because we're not
+passing anything into it here so what we
+
+0:16:46.980,0:16:53.180
+need to do is set up some variables that
+we can use on the server and get loaded
+
+0:16:53.180,0:16:58.480
+into the clients for the template so
+that when riot mounts the tag Jan 12
+
+0:16:58.480,0:17:03.570
+pages loaded it's a seamless transition
+and the server content stays in place
+
+0:17:03.570,0:17:08.589
+until the tags interacted with so we're
+going to go into a b.j s
+
+0:17:12.689,0:17:17.529
+you're gonna add a variable called
+starting name and I'm gonna give it a
+
+0:17:17.529,0:17:21.079
+different name this time just so it's
+easy to see that it's working and then
+
+0:17:21.079,0:17:28.250
+we're going to update our response not
+render to pass in first name calling
+
+0:17:28.250,0:17:35.090
+starting name and now I'm gonna go into
+my template and I want to use that
+
+0:17:35.090,0:17:41.070
+variable in the template so this might
+look a little bit confusing but what's
+
+0:17:41.070,0:17:46.110
+happening is we're calling right up on
+the client we're passing an astronaut's
+
+0:17:46.110,0:17:50.840
+to tell it to load all the tags which in
+our case is just the HelloWorld tag and
+
+0:17:50.840,0:17:56.009
+then we're passing an object literal
+with the first name property so the
+
+0:17:56.009,0:18:01.090
+variable and double brackets is going to
+be swapped out for the actual value on
+
+0:18:01.090,0:18:06.070
+the server and then when this hits the
+client will be first name and then susan
+
+0:18:06.070,0:18:10.590
+in quotes so that when riot at mount
+runs on the client will basically be
+
+0:18:10.590,0:18:16.210
+seamless because the server rendered
+HTML will also use that same first name
+
+0:18:16.210,0:18:23.690
+value so gonna go back to apt ijs and
+I'm gonna make sure that I'm using the
+
+0:18:23.690,0:18:31.000
+starting named variable in my initial
+render on the server
+
+0:18:31.549,0:18:37.580
+place starting named Perry plays first
+name value with starting them and that
+
+0:18:37.580,0:18:43.129
+should hook everything up so that are
+tagged gets rendered on the server that
+
+0:18:43.129,0:18:50.649
+output HTML is loaded into our template
+or template gets run through this week
+
+0:18:50.649,0:18:54.269
+templating engine so many variables
+inside a can be swapped out on the
+
+0:18:54.269,0:18:58.539
+server sent to the client and once it
+hits the client riots going to melt that
+
+0:18:58.539,0:19:04.399
+tag again and everything will function
+just like it did when we did nothing but
+
+0:19:04.399,0:19:13.009
+clients i text so let's take a look at
+that Sony go in and around my apt to go
+
+0:19:13.009,0:19:19.590
+back into my browser and I gotta run
+this will see that are named Susan came
+
+0:19:19.590,0:19:24.010
+thru everywhere I would just make sure
+this works
+
+0:19:24.010,0:19:32.890
+I can take the name into the input click
+the button and it'll update and all that
+
+0:19:32.890,0:19:37.990
+interaction happens on the client just
+as expected I hope you found this video
+
+0:19:37.990,0:19:42.750
+helpful you have any questions comments
+or feedback please feel free to leave it
+
+0:19:42.750,0:19:43.900
+and thank you for watching
+

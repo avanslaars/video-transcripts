@@ -1,0 +1,312 @@
+0:00:00.000,0:00:04.580
+welcome to another installment of the
+right to ask him redux video series if
+
+0:00:04.580,0:00:08.320
+you haven't been following along it will
+probably be much easier to start at the
+
+0:00:08.320,0:00:15.769
+beginning since each video builds on
+where the previous video of staff and
+
+0:00:15.769,0:00:20.119
+remember to get up to speed on Redux
+itself you really can't beat ya diode
+
+0:00:20.119,0:00:20.779
+videos
+
+0:00:20.779,0:00:26.939
+paradoxes creator Dan Abrams sonar last
+video we stand upright and redux to use
+
+0:00:26.939,0:00:31.510
+the thunk middleware so that we can make
+a seng calls ever use that to call our
+
+0:00:31.510,0:00:36.160
+JSON server with the get to grab a
+couple of records and displayed on the
+
+0:00:36.160,0:00:40.030
+page we're going to build on that
+example and now we're gonna start
+
+0:00:40.030,0:00:46.070
+posting to that same API and the great
+thing about JSON server is it allows
+
+0:00:46.070,0:00:50.210
+that and it'll actually take the updates
+and apply them to RDV don't chase on
+
+0:00:50.210,0:00:56.190
+file so that we can use this like a real
+API everything is fine based so let's
+
+0:00:56.190,0:01:00.800
+take a look at that would open a new
+terminal window into my new window we're
+
+0:01:00.800,0:01:07.830
+just gonna take a look at a quick post
+using curl so no posts to localhost 3000
+
+0:01:07.830,0:01:13.000
+/ tasks with the content types at
+applications like JSON and the data
+
+0:01:13.000,0:01:17.640
+sample their press ENTER there and get a
+response
+
+0:01:17.640,0:01:22.369
+sample it has no idea of two but I go
+back into my editor and take a look at
+
+0:01:22.369,0:01:29.100
+TV that JSON will see that has been
+updated with that data so no clear that
+
+0:01:29.100,0:01:31.900
+out
+
+0:01:31.900,0:01:36.410
+and might add some code so that we can
+post from our actual application so the
+
+0:01:36.410,0:01:40.930
+first thing to do is to create a new tag
+and this tag is gonna hold the form is
+
+0:01:40.930,0:01:47.900
+going to add a new task so a new file
+and I'm gonna call that test performed
+
+0:01:47.900,0:01:54.040
+at tank and in their file go ahead and
+give it a true tags were gonna need some
+
+0:01:54.040,0:01:59.400
+form tags and its form is gonna have a
+non submit handler that's going to point
+
+0:01:59.400,0:02:05.150
+to a function called handle submit
+create a moment gonna take an input type
+
+0:02:05.150,0:02:09.700
+text with the name new task will give
+the submit button and I'm gonna throw in
+
+0:02:09.700,0:02:15.350
+some script as with the handle submit
+function and in my form handler I'm
+
+0:02:15.350,0:02:22.190
+gonna call this tied up start at TASC
+asset value from input text field so add
+
+0:02:22.190,0:02:28.430
+task is going to be passed into the tag
+as natural you are to do at tag and once
+
+0:02:28.430,0:02:31.680
+we have submitted the form we also want
+to clear out the value that was in the
+
+0:02:31.680,0:02:36.910
+employee so we just had a call to this
+date new task value and set it equal an
+
+0:02:36.910,0:02:43.280
+empty string so now I want to go into
+actions done Jas so the end of our
+
+0:02:43.280,0:02:48.930
+actions digest file what a function call
+dad task and will accept new task as an
+
+0:02:48.930,0:02:53.070
+argument and now that I have that
+function gonna go up to the top of the
+
+0:02:53.070,0:02:59.310
+file and expose that through module .
+exports now go back down to a function
+
+0:02:59.310,0:03:04.800
+and its going to reach her new function
+with dispatching get state as its
+
+0:03:04.800,0:03:09.760
+arguments and in their function we're
+gonna dispatcher toggle loading action
+
+0:03:09.760,0:03:13.300
+and then I'll show are looking into
+catering case adding a task takes a long
+
+0:03:13.300,0:03:18.989
+time and we're gonna set up our exit XHR
+request a request that open with post
+
+0:03:18.989,0:03:25.530
+our path to tasks call center request
+header content type application / JSON
+
+0:03:25.530,0:03:31.160
+and we'll set up a function to handle
+the onload and we want to send a request
+
+0:03:31.160,0:03:34.380
+and when we send a request we want to
+pass it
+
+0:03:35.010,0:03:40.180
+Jason stratified value with our new task
+passed in as the name property
+
+0:03:40.180,0:03:44.269
+so this will create a new task JSON
+server automatically take care of the
+
+0:03:44.269,0:03:49.420
+idea of you and in the onload function
+will take our response text will parse
+
+0:03:49.420,0:03:54.870
+that pass it into a variable called data
+and a call to dispatch and we're going
+
+0:03:54.870,0:04:00.730
+to dispatch new task had it with the
+idea and the name of the new task and
+
+0:04:00.730,0:04:05.549
+before I move on to create a new test a
+detection creator let's add a second
+
+0:04:05.549,0:04:10.609
+call dispatch to hide are loading
+indicator so-called dispatch struggling
+
+0:04:10.609,0:04:16.370
+with loss and then I'll Haider indicator
+and before I forget we're gonna wrap our
+
+0:04:16.370,0:04:21.289
+data and dispatch call to news has got
+it in its statement the checks for a
+
+0:04:21.289,0:04:27.750
+successful response so check if request
+status is greater than 200 West Ham 410
+
+0:04:27.750,0:04:33.330
+will dispatch that new task added with
+her data center Todd loading files can
+
+0:04:33.330,0:04:37.620
+be outside at Erica's wanna make sure we
+hide loading indicator either way now
+
+0:04:37.620,0:04:44.539
+let's create that new test cabbage
+action creator so we have functioned new
+
+0:04:44.539,0:04:51.530
+task at it and it's going to accept idea
+name I'm going to return an object width
+
+0:04:51.530,0:04:58.630
+at a property called task added and a
+property with an object with an idea and
+
+0:04:58.630,0:05:02.889
+an improperly says gonna represent our
+new task and now that we have this setup
+
+0:05:02.889,0:05:10.169
+let's go back to a reducer and set up a
+case for the task added action so I case
+
+0:05:10.169,0:05:15.599
+task added and we're gonna have that
+returned object at a sign with our
+
+0:05:15.599,0:05:22.699
+existing state and an object where tasks
+is replaced with the existing tasks plus
+
+0:05:22.699,0:05:26.610
+a caller can cat to take that new task
+and tack it onto the end of the
+
+0:05:26.610,0:05:31.229
+resulting array so now to make sure that
+our task form is included in the bundle
+
+0:05:31.229,0:05:38.280
+we're gonna add require call for our
+task form tank and in order to do at
+
+0:05:38.280,0:05:41.280
+that tag file you need to add the markup
+
+0:05:42.289,0:05:48.460
+to show task for him and her task form
+needs an event handler function if you
+
+0:05:48.460,0:05:56.029
+remember when we created task form we're
+passing a call center handle submit
+
+0:05:56.029,0:05:58.059
+we're calling options
+
+0:05:58.059,0:06:06.509
+dot had task so we need to pass that in
+so add tasks can equal expression and in
+
+0:06:06.509,0:06:13.309
+that expression we're gonna pass this .
+handle new task we're gonna have a
+
+0:06:13.309,0:06:21.860
+handle new task function to our to-do
+app tank it's been accepted HASC and
+
+0:06:21.860,0:06:28.099
+it's going to cost or dispatch and it's
+going to dispatch al actions . a desk
+
+0:06:28.099,0:06:34.029
+and this keeps all of our redux store
+specific functionality outside of our
+
+0:06:34.029,0:06:40.569
+tags for container manages that so it'll
+handle calls to dispatch and updating
+
+0:06:40.569,0:06:45.639
+the state subscribe and now that we have
+this setup let's go to our browser and
+
+0:06:45.639,0:06:57.019
+check it out and we'll see that the
+leading indicator flashes for a brief
+
+0:06:57.019,0:07:03.669
+second it has this value back and my
+state is updated when the response comes
+
+0:07:03.669,0:07:10.430
+back from JSON server thank you for
+watching hope you found this video
+
+0:07:10.430,0:07:14.119
+helpful be sure to keep an eye out for
+the next video in the series
+

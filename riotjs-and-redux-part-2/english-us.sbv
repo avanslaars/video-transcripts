@@ -1,0 +1,295 @@
+0:00:00.000,0:00:04.680
+welcome to another installment of the
+right chest and redux video series if
+
+0:00:04.680,0:00:08.420
+you haven't been following along it will
+probably be much easier to start at the
+
+0:00:08.420,0:00:13.650
+beginning since each video deals on
+where the previous video by staff and
+
+0:00:13.650,0:00:18.080
+remember to get up to speed on Redux
+itself you really can't beat ya diode
+
+0:00:18.080,0:00:18.740
+videos
+
+0:00:18.740,0:00:21.800
+paradoxes creator Dan aber muss
+
+0:00:21.800,0:00:27.949
+when we left off last time we had
+created a redox or created as super
+
+0:00:27.949,0:00:33.640
+basic producer and has our story into a
+tag so that we can get the state and
+
+0:00:33.640,0:00:38.400
+grab properties off of that state object
+this time we're going to build on that
+
+0:00:38.400,0:00:42.360
+example we're going to introduce some
+actions so the first thing I want to do
+
+0:00:42.360,0:00:46.809
+is with this sample output tag on it
+clean it up and get rid of that excess
+
+0:00:46.809,0:00:51.290
+paragraph really need that I know what
+I'm going to do isn't gonna add a forum
+
+0:00:51.290,0:00:55.199
+is going to add some interactivity I'm
+gonna do that and redux
+
+0:00:55.199,0:01:03.039
+by dispatching actions so create a forum
+for that forms on Submit you want to add
+
+0:01:03.039,0:01:09.410
+a change title method and we'll have
+that sort a just a moment and my form
+
+0:01:09.410,0:01:14.179
+also needs an input will take peace
+attacks were gonna call that new title
+
+0:01:14.179,0:01:20.520
+and we're gonna give our former button
+so that we can submit that new title
+
+0:01:21.530,0:01:26.970
+down at the bottom of my tag gonna have
+my script tags and I wanna call change
+
+0:01:26.970,0:01:32.229
+title and for now just so we can make
+sure that everything is wired up and
+
+0:01:32.229,0:01:37.280
+everything's been tied to properly
+monitor console inside of change title
+
+0:01:37.280,0:01:43.920
+and I'm gonna go over my browser and
+refresh your notice that I have my
+
+0:01:43.920,0:01:53.679
+default title and my new form of tools
+escaped a new value into my forum and i
+
+0:01:53.679,0:01:59.729
+got a click Change title I should see
+the new value logged onto the console so
+
+0:01:59.729,0:02:04.390
+now that I know my form is properly
+wired up I'm gonna go back into my
+
+0:02:04.390,0:02:09.610
+sample output tank to remove that
+console log and what I want to do is I
+
+0:02:09.610,0:02:15.260
+wanna get access to my store so called
+that through this upstart store and I
+
+0:02:15.260,0:02:20.730
+want to use the stores dispatch method
+to send in and then out to the reducer
+
+0:02:20.730,0:02:27.459
+or more appropriately send them action
+to the reducer so dispatches gonna send
+
+0:02:27.459,0:02:29.220
+an action object
+
+0:02:29.220,0:02:34.240
+that object is gonna have a tight
+property but I properly as hell we're
+
+0:02:34.240,0:02:40.840
+gonna decide what to do with this
+particular action and because I'm trying
+
+0:02:40.840,0:02:45.610
+to change the title and I have a foreign
+value has gone to pass and data along
+
+0:02:45.610,0:02:53.370
+with the object so aside from the type
+I'm also gonna give it a property and
+
+0:02:53.370,0:03:01.170
+can assign the value of new title that
+value to the data property now that I
+
+0:03:01.170,0:03:07.600
+have that wired up they can go back to
+index that Jas and mi reducer I'm gonna
+
+0:03:07.600,0:03:12.540
+have to consult with action so we can
+see what's happening so got back to my
+
+0:03:12.540,0:03:16.920
+browser refresh open up the console
+again
+
+0:03:21.050,0:03:28.460
+it's a value this is a test into my
+title going to submit the form and we'll
+
+0:03:28.460,0:03:33.130
+see that we get an object logged out so
+the console with the title you have
+
+0:03:33.130,0:03:42.410
+changed title signed it in the object we
+pass to dispatch and we had a property
+
+0:03:42.410,0:03:47.360
+where the value that we tighten to our
+employees so we know that our action is
+
+0:03:47.360,0:03:52.470
+making it to the reducer for now let's
+do something with it so in my producer
+
+0:03:52.470,0:03:58.550
+at a switch because 320 handle multiple
+actions we want to change our behavior
+
+0:03:58.550,0:04:04.820
+based on the types passed in and I want
+to add a case may switch for change
+
+0:04:04.820,0:04:12.270
+title and because where it is or has to
+return to state no matter what must have
+
+0:04:12.270,0:04:18.700
+been added to folk case then take my
+return state that I had as the only
+
+0:04:18.700,0:04:24.050
+functionality in the reducer method and
+I'm gonna move that at 200 to fall so
+
+0:04:24.050,0:04:28.370
+that if we get an action and we don't
+match on the tape will return this state
+
+0:04:28.370,0:04:34.630
+as it is and everything will continue to
+function so in the change title case I
+
+0:04:34.630,0:04:40.570
+want to create a new state and I'm going
+to give it a title properly assign
+
+0:04:40.570,0:04:48.030
+action that data has the value that
+title on our return new state and with
+
+0:04:48.030,0:04:51.030
+that in place to go to the browser
+refresh
+
+0:04:53.190,0:05:03.350
+a forum with my new title I submit the
+form it should update the title of my
+
+0:05:03.350,0:05:10.830
+tach so just to recap submitting the
+form and sample output cause change
+
+0:05:10.830,0:05:16.840
+title which uses the Redux stories
+dispatch method as long in action object
+
+0:05:16.840,0:05:22.990
+their action object has a type and a
+piece of data which represents the new
+
+0:05:22.990,0:05:25.780
+title
+
+0:05:25.780,0:05:32.010
+producer I switch on that action type
+when I hit the change table case I
+
+0:05:32.010,0:05:36.540
+create a new state sign the title
+property of that action that data
+
+0:05:36.540,0:05:42.800
+returned that new state and my sample
+output eg when it's updated
+
+0:05:43.740,0:05:51.680
+called get state again and receive the
+new value of title so the problem with
+
+0:05:51.680,0:05:56.520
+this new state set up is that this is
+gonna raise her in an object that only
+
+0:05:56.520,0:06:02.280
+has a title property in a more complex
+application for state will contain other
+
+0:06:02.280,0:06:06.130
+values that are being used in other
+parts of the state tree so you want to
+
+0:06:06.130,0:06:09.880
+make sure that we only change the value
+were concerned with and still return a
+
+0:06:09.880,0:06:15.130
+full version of the state only are
+changes reflected so we want to do some
+
+0:06:15.130,0:06:17.270
+refactoring
+
+0:06:17.270,0:06:24.160
+and I want to use object at a sign and I
+want to take the state and an object
+
+0:06:24.160,0:06:29.430
+with my new title and won a combined
+them into a new object that gets
+
+0:06:29.430,0:06:35.290
+returned to represent the new state and
+if we go over to the browser we can
+
+0:06:35.290,0:06:49.190
+refresh again and get our default title
+that we start with value and everything
+
+0:06:49.190,0:06:53.840
+I'll continue to wear and that we
+verified that we didn't break anything
+
+0:06:53.840,0:06:58.230
+or exaggerating we can go back and read
+code and remove this console dialogue
+
+0:06:58.230,0:07:03.350
+thank you for watching hope you found
+this video helpful and be sure to keep
+
+0:07:03.350,0:07:04.980
+an eye out for the next video in the
+series
+

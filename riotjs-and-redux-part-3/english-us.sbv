@@ -1,0 +1,329 @@
+0:00:00.000,0:00:04.750
+welcome to another installment of the
+right chest and redux video series if
+
+0:00:04.750,0:00:08.490
+you haven't been following along it will
+probably be much easier to start at the
+
+0:00:08.490,0:00:12.540
+beginning since each video builds on
+where the previous video left off
+
+0:00:14.390,0:00:19.230
+and remember to get up to speed on Redux
+itself you really can't beat ya diode
+
+0:00:19.230,0:00:19.890
+videos
+
+0:00:19.890,0:00:23.280
+paradoxes creator Dan aber muss
+
+0:00:23.280,0:00:29.200
+when we left off last time we had our
+right tag dispatching action having a go
+
+0:00:29.200,0:00:32.860
+through the reduced her returning in
+your state and having that new state
+
+0:00:32.860,0:00:38.540
+reflected in our tack one of the key
+benefits of a system like redux and the
+
+0:00:38.540,0:00:42.739
+fact that our entire application is
+represented by a single state tree that
+
+0:00:42.739,0:00:46.190
+we have multiple tags communicate with
+each other without actually knowing
+
+0:00:46.190,0:00:50.170
+about each other as long as they're
+aware of the store where the state
+
+0:00:50.170,0:00:55.309
+that's being passed into them they can
+act independently and user dispatcher to
+
+0:00:55.309,0:01:01.050
+get information backup update the state
+so we're going to take our existing
+
+0:01:01.050,0:01:05.970
+example I'm gonna break it down into
+multiple tags performance in its own tag
+
+0:01:05.970,0:01:12.030
+it dispatches and action and we make
+sure that our output tag still updates
+
+0:01:12.030,0:01:17.320
+the title based on that form input so to
+get started I'm gonna add a new tags
+
+0:01:17.320,0:01:28.850
+gonna call it title forum entitled form
+had the route eggs tabled a sworn to
+
+0:01:28.850,0:01:34.439
+keep things simple we gotta go to my
+sample output headache and I'm gonna cut
+
+0:01:34.439,0:01:37.439
+the forum and the associated script tank
+
+0:01:37.939,0:01:47.750
+leaving only the title and I'm gonna go
+back to my title form tag I'm gonna put
+
+0:01:47.750,0:01:51.920
+that for content and the script tag with
+the handler entitle form
+
+0:01:52.590,0:01:57.729
+gonna go back to index that Jas I'm
+gonna have to require to say I have four
+
+0:01:57.729,0:02:03.979
+sample output had one for our newsletter
+form tank and I'm gonna update my column
+
+0:02:03.979,0:02:09.940
+right time and person Astrix that way at
+all now and he's had that on the HTML
+
+0:02:09.940,0:02:16.580
+file and then I'm going to go into index
+HTML I'm gonna horizontal rule just we
+
+0:02:16.580,0:02:22.650
+have some kind of visual to show us that
+this is new output advertiser form tag
+
+0:02:22.650,0:02:28.930
+into the HTML and now you can go over to
+my browser and refresh mostly that are
+
+0:02:28.930,0:02:34.620
+horizontal rules there and our form is
+there but this time it's in its own
+
+0:02:34.620,0:02:42.989
+take survey get on the browser and type
+in this is my new title and I clicked
+
+0:02:42.989,0:02:49.239
+changed will see that nothing happened
+so the problem is our stories
+
+0:02:49.239,0:02:53.049
+dispatching or action or action is
+running through the reduce her at a new
+
+0:02:53.049,0:02:57.720
+state is being returned but because the
+action is happening in a different tag
+
+0:02:57.720,0:03:03.450
+right isn't actually updating the
+default title tag I'm sorry the sample
+
+0:03:03.450,0:03:08.670
+output eg because it is aware that it
+needs to do an update there just to
+
+0:03:08.670,0:03:20.700
+prove this let's go to indexed at Jas
+and I'm gonna had my console back in the
+
+0:03:20.700,0:03:23.700
+browser and refresh
+
+0:03:28.030,0:03:33.720
+they've been some new title will see
+that our action is still being
+
+0:03:33.720,0:03:41.600
+dispatched but we need to make sure that
+sample output tag nosed update itself so
+
+0:03:41.600,0:03:49.350
+we're gonna get a sample output tang and
+I'm gonna add some script tanks and I
+
+0:03:49.350,0:03:53.580
+want to access the store that I'm
+getting through the options and the
+
+0:03:53.580,0:03:57.720
+store as we've seen so far hasn't get
+state method that allows us to get
+
+0:03:57.720,0:04:01.930
+access to the state and also has the
+dispatch method that allows us to pass
+
+0:04:01.930,0:04:09.140
+action objects into the reducer and it
+has a subscribe method and subscribe
+
+0:04:09.140,0:04:14.670
+method is how we're gonna notifier tag
+that the state has changed and it needs
+
+0:04:14.670,0:04:19.729
+to be updated so subscribers gonna take
+it out of its function and in or
+
+0:04:19.729,0:04:25.570
+subscribe function we're gonna call
+riots this done update and because I'm
+
+0:04:25.570,0:04:31.130
+using this inside this anonymous
+function I need to make sure I call bind
+
+0:04:31.130,0:04:38.010
+with their song that function or to have
+a different scope for this and now that
+
+0:04:38.010,0:04:41.010
+we have set that up and go back to our
+browser
+
+0:04:43.330,0:04:46.979
+give it another new title
+
+0:04:48.590,0:04:54.080
+this time everything works now we have
+an opportunity to do some refactoring so
+
+0:04:54.080,0:04:56.790
+we're going to clean up our code a bit
+while retaining the exact same
+
+0:04:56.790,0:05:00.750
+functionality we have current if we look
+at the title form tag will see that our
+
+0:05:00.750,0:05:05.490
+dispatches passing this object literal
+as our action object this is water
+
+0:05:05.490,0:05:09.960
+reducers expecting but there are two
+pieces of data and the action object and
+
+0:05:09.960,0:05:13.890
+only one that is actually derived from
+the event handler and our tag that's the
+
+0:05:13.890,0:05:18.210
+value of the input when the form is
+submitted the type property is a string
+
+0:05:18.210,0:05:22.390
+that is essentially constant value so
+we're going to move the creation of this
+
+0:05:22.390,0:05:27.160
+object into an action creator reaction
+Creator will take the title value as an
+
+0:05:27.160,0:05:32.210
+argument and return this object with
+that new title value and place your
+
+0:05:32.210,0:05:37.280
+order to get that going what we're gonna
+do is we're going to add and actions Jas
+
+0:05:37.280,0:05:46.550
+file in our source directory and that's
+going to export a module so put in
+
+0:05:46.550,0:05:53.110
+module that exports will set that equal
+an object literal and I wanna give it a
+
+0:05:53.110,0:05:59.380
+method called change title and I'm gonna
+point change table to a function called
+
+0:05:59.380,0:06:04.900
+change diaper change sale is going to
+take an argument and that's going to be
+
+0:06:04.900,0:06:12.750
+the new title and that's going to return
+our action upset so the first thing our
+
+0:06:12.750,0:06:17.150
+action object needs are type which is
+going to be changed title again using
+
+0:06:17.150,0:06:22.860
+exactly what we did from within the tag
+or just refactoring the sale that's
+
+0:06:22.860,0:06:27.260
+going to have a data property and that's
+going to take the new title value and
+
+0:06:27.260,0:06:33.950
+pass that along to me I'm going to go
+back to my title form tank and I'm gonna
+
+0:06:33.950,0:06:39.529
+comment this dispatch call cuz I want to
+replace it but I want to keep it as a
+
+0:06:39.529,0:06:48.139
+reference to add a new call to stored at
+dispatch and this time he's my action
+
+0:06:48.139,0:06:55.769
+creator to put the action object and as
+dispatches argument in a very do that I
+
+0:06:55.769,0:07:02.399
+need to get a reference to my actions
+object soyuz require actions that Jas
+
+0:07:02.399,0:07:10.479
+and then inside the dispatch function of
+has it actions . change title and change
+
+0:07:10.479,0:07:16.199
+table takes an argument to represent the
+new titles value we can use this start
+
+0:07:16.199,0:07:17.459
+new title that value
+
+0:07:17.459,0:07:23.019
+let's go to a browser and refresh and
+see if everything still works now that
+
+0:07:23.019,0:07:34.119
+we've refactored does so I can go into
+my changed later function and i cant
+
+0:07:34.119,0:07:40.739
+delete a comment about Persian and now
+we've refactored to use action creators
+
+0:07:40.739,0:07:41.709
+with redux
+
+0:07:41.709,0:07:46.789
+thank you for watching hope you found
+this video helpful and be sure to keep
+
+0:07:46.789,0:07:48.419
+an eye out for the next video in the
+series
+

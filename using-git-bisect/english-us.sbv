@@ -1,0 +1,154 @@
+0:00:00.950,0:00:04.240
+in this video I'm gonna show you how you
+can track down the commit that
+
+0:00:04.240,0:00:09.679
+introduced to bugs using gets by Sektor
+IRA simple webpage running locally
+
+0:00:09.679,0:00:15.099
+represents our application when I load
+the page you'll see that we get this
+
+0:00:15.099,0:00:19.150
+alert message that alert message
+represents the bug that we need to track
+
+0:00:19.150,0:00:24.160
+down get bisect helps you track down
+when a bug was introduced by checking
+
+0:00:24.160,0:00:27.950
+out commits for you and accepting
+feedback basically tell that all the
+
+0:00:27.950,0:00:32.890
+committees good morning no but we're bed
+bugs present it narrows it down to the
+
+0:00:32.890,0:00:36.510
+earliest commit where the bug is present
+so let's see it in action in order for
+
+0:00:36.510,0:00:40.250
+this to work will need to find a commit
+that does not have the bug in our case
+
+0:00:40.250,0:00:43.610
+will start at the initial commit but in
+the real world you probably go back to a
+
+0:00:43.610,0:00:49.140
+specific release and confirm that the
+bugs and present and start from there we
+
+0:00:49.140,0:00:56.630
+use get Prague and go to my initial
+commit and I'll grab the hash for this
+
+0:00:56.630,0:01:04.399
+commit and I want to tell get to run by
+six so I'll take in get by set start
+
+0:01:05.579,0:01:09.869
+look like nothing's happened but it has
+started the process so the next piece of
+
+0:01:09.869,0:01:16.380
+information we need to give it two years
+are known good commit to do that by
+
+0:01:16.380,0:01:23.520
+running git bisect good followed by the
+hash for a known good commit and we're
+
+0:01:23.520,0:01:29.649
+also gonna run get bisect bad bad will
+take a commit hashes well but if you
+
+0:01:29.649,0:01:33.490
+don't pass it one is just going to
+assume the current commit so we're
+
+0:01:33.490,0:01:36.179
+basically saying that we know the
+initial commit was good we know the
+
+0:01:36.179,0:01:37.659
+current committee as bad
+
+0:01:37.659,0:01:41.880
+help us track down the one that
+introduced the bug and as soon as we run
+
+0:01:41.880,0:01:48.459
+that it's gonna check out a commit in
+between our two commits so at this point
+
+0:01:48.459,0:01:53.529
+we have this committee checked out going
+to refresh your page and do whatever it
+
+0:01:53.529,0:01:57.349
+is that we have to do to test our
+application cases just reloading the web
+
+0:01:57.349,0:02:01.240
+page we do that we'll see that it's in a
+different state but we don't have our
+
+0:02:01.240,0:02:08.890
+bug so we're gonna give get buy SexyBack
+by saying get bisect good
+
+0:02:08.890,0:02:13.150
+and its gonna check out another commit
+so basically use that feedback to know
+
+0:02:13.150,0:02:18.580
+where it stands so go back and will
+retest our application and we have a bug
+
+0:02:18.580,0:02:22.610
+here so we're getting this mobile alert
+message and we don't want that
+
+0:02:23.760,0:02:29.140
+gonna go back and I'm gonna let by SEC
+know that that was bad so i'll check out
+
+0:02:29.140,0:02:37.940
+another commits we're on our test again
+and it's bad so I now get bisect bad
+
+0:02:37.940,0:02:46.480
+check out another commits nobody there
+so I'll give it to get feedback
+
+0:02:48.100,0:02:58.769
+check out another committee will test
+again nobody we repeat the cycle no bug
+
+0:02:58.769,0:03:03.900
+again and when it's done it's gonna give
+us a commit who authored that commit
+
+0:03:03.900,0:03:09.220
+when they did it and the files that were
+changed when we're done we've gotten
+
+0:03:09.220,0:03:14.150
+information we need we tryna get status
+will see that we're in a Detached head
+
+0:03:14.150,0:03:19.090
+state that has that last commit check
+down so we can just call get my sector
+
+0:03:19.090,0:03:24.030
+reset and it will check out our current
+branch and put us back in a good working
+
+0:03:24.030,0:03:24.340
+state
+

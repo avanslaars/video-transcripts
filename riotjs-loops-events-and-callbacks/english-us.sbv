@@ -1,0 +1,782 @@
+0:00:00.530,0:00:04.720
+Kyle my name is Andrew chancellors and
+this is my second video about right
+
+0:00:04.720,0:00:09.120
+JS in this video we will build on the
+basics recovered in the first video
+
+0:00:09.120,0:00:12.700
+if you're looking for an introduction I
+would recommend you start there
+
+0:00:12.700,0:00:15.940
+we'll cover how do you try it building
+now and then
+
+0:00:15.940,0:00:20.510
+to run code as soon as the tag has been
+mounted how to pass a function
+
+0:00:20.510,0:00:23.920
+an expression to give it access to coat
+on our page
+
+0:00:23.920,0:00:28.369
+how to use Ryan's built-in support for
+looping through data and a tank
+
+0:00:28.369,0:00:32.149
+custom events using the observable API
+provided by Ryan
+
+0:00:32.149,0:00:36.050
+and finally will combine these
+techniques to grab some Jason data
+
+0:00:36.050,0:00:39.290
+pass it into the tag and display the
+data by looping through
+
+0:00:39.290,0:00:43.649
+like last time I've created directory
+for the files to work with in this video
+
+0:00:43.649,0:00:47.910
+I have a terminal window open a basic
+HTML file
+
+0:00:47.910,0:00:51.180
+and chrome open so we can look at the
+results as we make changes
+
+0:00:51.180,0:00:55.030
+to get started will create the root
+level tag that these examples will be
+
+0:00:55.030,0:00:55.710
+based on
+
+0:00:55.710,0:01:00.090
+the contact list ac well defined as an
+attack file
+
+0:01:05.600,0:01:12.540
+will make the river file are tagged they
+will give it some static content to
+
+0:01:12.540,0:01:13.240
+start with
+
+0:01:13.240,0:01:19.729
+so we can be sure everything is working
+as expected all reference the tag on our
+
+0:01:19.729,0:01:20.549
+HTML
+
+0:01:20.549,0:01:26.320
+and at a call to write that now
+
+0:01:26.320,0:01:32.640
+our scripts tank and will fire up our
+compiler
+
+0:01:32.640,0:01:36.270
+using the watch option so to update our
+tags automatically as we make changes
+
+0:01:36.270,0:01:43.789
+and just like in the last video
+
+0:01:43.789,0:01:47.380
+will use the HTTP server node module to
+run our app
+
+0:01:47.380,0:01:52.090
+and now it take a look at our page to
+make sure everything is working
+
+0:01:52.090,0:02:00.700
+and will see their page loads up in our
+static content from our tag is displayed
+
+0:02:00.700,0:02:04.840
+when i'm creating a new tag I we like to
+do a quick sanity check like this to
+
+0:02:04.840,0:02:06.690
+make sure I haven't missed something
+basic
+
+0:02:06.690,0:02:09.910
+that way if I make a mistake in my tag
+doesn't now properly
+
+0:02:09.910,0:02:13.230
+at least I can eliminate the initial
+setup is the cause my prop
+
+0:02:13.230,0:02:17.079
+high-tech file setup and loading
+properly on the page so it's time to
+
+0:02:17.079,0:02:18.530
+take a look at the mountain
+
+0:02:18.530,0:02:22.790
+week alright that now and write finishes
+manning the tag
+
+0:02:22.790,0:02:26.200
+the mountain aspired and art I can
+respond to this with the handler
+
+0:02:26.200,0:02:29.200
+latter handler code in the script for
+attack
+
+0:02:42.750,0:02:45.709
+in this case we're just going to lock
+something out to the console so we can
+
+0:02:45.709,0:02:47.569
+see that the event handler was fired
+
+0:02:47.569,0:02:52.160
+might switch to the browser
+
+0:02:52.160,0:02:55.190
+open a developer tools we can see our
+Console output
+
+0:02:55.190,0:02:58.780
+when I refresh the page and checked
+consular put
+
+0:02:58.780,0:03:02.250
+will see that the mount event handler
+code is executed
+
+0:03:02.250,0:03:06.060
+in the introductory video we saw how we
+can pass
+
+0:03:06.060,0:03:11.450
+data into our tags using expressions we
+can also pass functions into expressions
+
+0:03:11.450,0:03:15.239
+allowing us to give our tags call backs
+let's go over how to do that
+
+0:03:16.060,0:03:23.159
+first for the final function on our page
+my am just going to call a function tag
+
+0:03:23.159,0:03:23.889
+call back
+
+0:03:23.889,0:03:27.569
+and just like we did with the man event
+we're going to use our console that
+
+0:03:27.569,0:03:29.329
+large us to see that it runs
+
+0:03:29.329,0:03:35.329
+to get this call at passing or tag we
+can pass it in just like any other
+
+0:03:35.329,0:03:36.069
+argument
+
+0:03:36.069,0:03:39.099
+will call a call back
+
+0:03:39.099,0:03:45.099
+book has been a member function
+announced that being passed in or tag
+
+0:03:45.099,0:03:49.639
+we can call their function from within
+our tack so pronounces can add that
+
+0:03:49.639,0:03:51.169
+right at the top of our script
+
+0:03:51.169,0:03:54.400
+and we call it
+
+0:03:54.400,0:03:58.769
+call back in the attic that we pass that
+amount method
+
+0:03:58.769,0:04:02.359
+and we can refresh your browser
+
+0:04:03.010,0:04:06.769
+and will see that the call that was
+executed
+
+0:04:06.769,0:04:10.480
+and then than now event was fired so we
+can see that it runs
+
+0:04:10.480,0:04:13.650
+let's just recap what's happening we had
+a tag
+
+0:04:13.650,0:04:17.160
+and our tag set to function as a
+property offers options object
+
+0:04:17.160,0:04:20.919
+in the pager Rican soon the tag with the
+find our own function
+
+0:04:20.919,0:04:25.210
+and that function can have any logic we
+need an A we passed that function
+
+0:04:25.210,0:04:26.430
+reference to the tag
+
+0:04:26.430,0:04:30.000
+attack and then run our custom object
+through the function reference
+
+0:04:30.000,0:04:33.000
+in this example were just calling the
+call back immediately
+
+0:04:33.599,0:04:37.750
+we can save that reference in users part
+logic in a button's onclick handler
+
+0:04:37.750,0:04:42.430
+or some other event pass control back to
+our application now we can make tags to
+
+0:04:42.430,0:04:43.900
+stay focused on the view
+
+0:04:43.900,0:04:47.949
+and can be reused more readily by
+providing custom object where make sense
+
+0:04:47.949,0:04:51.229
+will revisit events in call back shortly
+but for now
+
+0:04:51.229,0:04:55.120
+let's take a look at how we can Luther
+said to data with right to get started
+
+0:04:55.120,0:04:58.289
+will set up an object that has an array
+of objects as one of its properties
+
+0:05:07.880,0:05:10.440
+now it's past this data to our tag in
+Mount method
+
+0:05:10.440,0:05:13.460
+more pass our peeps variable into
+
+0:05:13.460,0:05:19.550
+people property on the options object
+now that that that has been passing or
+
+0:05:19.550,0:05:20.160
+tag
+
+0:05:20.160,0:05:23.620
+but look at how easy it is to Luther
+using rights building
+
+0:05:23.620,0:05:27.700
+each attribute will display your
+contacts in and unordered list
+
+0:05:27.700,0:05:31.690
+so it at that for each person in our ray
+
+0:05:31.690,0:05:35.470
+we're gonna want to add a new list item
+to our list we can do that easily using
+
+0:05:35.470,0:05:35.950
+right
+
+0:05:35.950,0:05:40.120
+each attribute the each attribute
+accepts an expression
+
+0:05:40.120,0:05:44.970
+in the format variable in collection so
+in our case thoroughly p
+
+0:05:44.970,0:05:49.620
+in upstart people there's a create a new
+instance at the El I element
+
+0:05:49.620,0:05:53.440
+for each item in our list and then we
+can access the individualist item
+
+0:05:53.440,0:05:56.500
+using that he very well we declared in
+our each attribute
+
+0:05:56.500,0:06:01.660
+and with that code written
+
+0:06:01.660,0:06:07.449
+let's take a look at the results as we
+
+0:06:07.449,0:06:11.169
+can see looking at pretty simple in
+right now it's combined some of these
+
+0:06:11.169,0:06:11.969
+concepts
+
+0:06:11.969,0:06:15.550
+and make car tag a little bit more
+useful we're gonna need to make some
+
+0:06:15.550,0:06:16.289
+changes
+
+0:06:16.289,0:06:19.589
+the first one is we're going to take a
+call back and we're gonna move there
+
+0:06:19.589,0:06:23.659
+into the mound event handler so that we
+know it doesn't get called
+
+0:06:23.659,0:06:27.059
+until the mountain and then is fired up
+
+0:06:27.059,0:06:30.339
+but they're quick sanity check in the
+browser to make sure we didn't break
+
+0:06:30.339,0:06:31.069
+anything
+
+0:06:31.069,0:06:34.210
+and we can see
+
+0:06:34.210,0:06:38.099
+both items fire you also see that the
+order changed
+
+0:06:38.099,0:06:41.749
+now that we know that works we're gonna
+make some changes her call back function
+
+0:06:42.289,0:06:45.770
+so there's a little more use for
+actually does something for this we're
+
+0:06:45.770,0:06:47.419
+gonna grass and Jason data
+
+0:06:47.419,0:06:51.599
+using an XML HTTP request for the
+example
+
+0:06:51.599,0:06:54.949
+we're going to use data in NJ some file
+in our directory structure
+
+0:06:54.949,0:06:58.370
+but this can be easily be replaced with
+a call to arrest service for something a
+
+0:06:58.370,0:06:59.279
+little more useful
+
+0:06:59.279,0:07:03.139
+so its creator Jason data I'm gonna go
+back to my html
+
+0:07:03.139,0:07:07.059
+and I'm gonna grab as this array of
+people
+
+0:07:07.059,0:07:12.969
+forget to add a new file Unicode people
+that Jason
+
+0:07:12.969,0:07:15.969
+you
+
+0:07:17.270,0:07:20.740
+I'll just add that in there because the
+Jason file
+
+0:07:20.740,0:07:23.970
+who's gonna wrap the property names in
+quotes as well
+
+0:07:23.970,0:07:27.220
+now that we have that
+
+0:07:27.220,0:07:31.420
+but at our XML HTTP request
+
+0:07:31.420,0:07:35.420
+you so create a variable called request
+
+0:07:35.420,0:07:38.930
+never be a new
+
+0:07:38.930,0:07:44.930
+XML HTTP request I'm gonna call
+
+0:07:44.930,0:07:48.480
+request open method and we're gonna pass
+it get
+
+0:07:48.480,0:07:54.040
+as our HTTP verb and we're gonna pass it
+a path to our file
+
+0:07:54.040,0:07:58.480
+just call people chase on
+
+0:07:58.480,0:08:02.830
+me want this to be a synchronous
+
+0:08:02.830,0:08:06.940
+and now add a handler for the request
+unload event
+
+0:08:06.940,0:08:12.560
+am here with this check the status over
+request
+
+0:08:12.560,0:08:18.010
+as long as we get a £200 response for
+good
+
+0:08:18.010,0:08:21.010
+10 we have data
+
+0:08:24.660,0:08:27.690
+and we're gonna parse the Jason to grab
+the response text
+
+0:08:27.690,0:08:35.080
+and put it into a variable called data
+and we will come back to this in a
+
+0:08:35.080,0:08:35.680
+moment
+
+0:08:35.680,0:08:39.310
+we have to get the data
+
+0:08:39.310,0:08:44.370
+into the attack and of course in order
+to get
+
+0:08:44.370,0:08:47.500
+any this to work we need to call request
+that
+
+0:08:47.500,0:08:51.480
+sent so all this is gonna happen inside
+ever call back
+
+0:08:51.480,0:08:55.040
+which is going to be called from inside
+our tag when the mail
+
+0:08:55.040,0:08:58.980
+event fires but we still have to deal
+with getting the data from
+
+0:08:58.980,0:09:02.150
+a call back in the page back into the
+tag
+
+0:09:02.150,0:09:07.080
+so that we can use the data and look
+through it right has a built-in
+
+0:09:07.080,0:09:11.460
+observable API which makes it easy to
+trigger and respond to customer events
+
+0:09:11.460,0:09:14.520
+so we can leverage that to get data into
+attack
+
+0:09:14.520,0:09:18.360
+in order to make sure we can trigger a
+custom event in our tag from a call back
+
+0:09:18.360,0:09:19.000
+function
+
+0:09:19.000,0:09:22.030
+we're going to pass the tag instance to
+
+0:09:22.030,0:09:26.540
+it as an argument when we call it so
+back in our tags JavaScript we call
+
+0:09:26.540,0:09:30.780
+are passing call back function we're
+gonna pass a reference to this
+
+0:09:30.780,0:09:34.530
+and then back in our page
+
+0:09:34.530,0:09:39.320
+per call back is going to accept them
+
+0:09:39.320,0:09:43.460
+the argument as a reference to the tech
+send a red tag is automatically
+
+0:09:43.460,0:09:44.230
+observable
+
+0:09:44.230,0:09:47.810
+just having that reference to the tag is
+enough to allow us to call the trigger
+
+0:09:47.810,0:09:49.800
+method to comes with rights observable
+
+0:09:49.800,0:09:53.130
+API once our data is loaded
+
+0:09:53.130,0:09:56.590
+we're going to trigger a customer that
+are tagged and pass our data as an
+
+0:09:56.590,0:09:57.170
+argument
+
+0:09:57.170,0:10:00.540
+so will call the tag
+
+0:10:00.540,0:10:07.280
+that trigger and this event name is one
+we make up
+
+0:10:07.280,0:10:12.200
+so in caller that whatever seems
+appropriate and the second argument for
+
+0:10:12.200,0:10:12.830
+trigger
+
+0:10:12.830,0:10:16.200
+is the data we're gonna pass in to our
+event
+
+0:10:18.080,0:10:21.100
+something a reference data track people
+
+0:10:21.100,0:10:24.410
+and people is coming from
+
+0:10:24.410,0:10:28.100
+the name at the array in our Jason
+object
+
+0:10:28.100,0:10:32.450
+and now that we're triggering that event
+we need to go into a tag
+
+0:10:32.450,0:10:38.590
+and add a handler for we can add a
+handler to our customer event just like
+
+0:10:38.590,0:10:40.210
+we did for the mount event
+
+0:10:40.210,0:10:43.220
+will start by calling this dot on
+
+0:10:43.220,0:10:47.880
+and then the name a bourbon which we
+call data
+
+0:10:47.880,0:10:51.620
+underscore loaded and it's going to take
+a call back
+
+0:10:51.620,0:10:56.890
+which will accept that passed in data as
+an argument
+
+0:10:56.890,0:11:01.650
+and in the event handler
+
+0:11:01.650,0:11:06.240
+we're gonna sign are passed in keeps
+value to our options
+
+0:11:06.240,0:11:13.420
+dot people art Agosto relying on the
+static data that we passed into riot
+
+0:11:13.420,0:11:14.330
+that now
+
+0:11:14.330,0:11:19.090
+we originally started this example so
+let's go back to the HTML page to remove
+
+0:11:19.090,0:11:19.590
+that
+
+0:11:19.590,0:11:23.380
+so we can see if our new code is
+actually grabbing are Jason data and
+
+0:11:23.380,0:11:26.380
+putting it into attack
+
+0:11:28.600,0:11:29.740
+if we look in the
+
+0:11:29.740,0:11:33.160
+again we'll see that there are no people
+
+0:11:33.160,0:11:37.720
+as color tank file is responding to the
+events
+
+0:11:37.720,0:11:41.310
+it's firing them an event is calling our
+call back we can see from our
+
+0:11:41.310,0:11:46.030
+console are the call back is executing
+our dad is being passed in
+
+0:11:46.670,0:11:51.080
+we have one important update to make and
+that is a call to this
+
+0:11:51.080,0:11:56.100
+that update this is what tells Ryan
+
+0:11:56.100,0:12:00.760
+to re render and update values and the
+TAC so when I refresh the page again
+
+0:12:01.330,0:12:05.910
+her tag will load a caller call back
+call back a grabber Jason Dufner
+
+0:12:05.910,0:12:10.440
+once that's been done it'll fire of our
+custom event
+
+0:12:10.440,0:12:15.650
+that one turn call update but they will
+render the tag and we'll see our content
+
+0:12:15.650,0:12:19.990
+rendered to the page now just to see how
+r tag will behave
+
+0:12:19.990,0:12:23.050
+fr service there was providing our data
+took 'em
+
+0:12:23.050,0:12:26.630
+moment to respond let's add a setTimeout
+
+0:12:26.630,0:12:30.870
+around our XML HTTP requests and method
+
+0:12:30.870,0:12:38.230
+just to simulate that's a hard tackle
+behave so this time out
+
+0:12:38.230,0:12:41.300
+will wait 2 seconds then call the
+function
+
+0:12:41.300,0:12:45.760
+which one turn call request Arts & and
+that will simulate
+
+0:12:45.760,0:12:50.380
+a slow loading time from our service and
+jerry have the tag will behave
+
+0:12:56.170,0:12:59.300
+and we'll see that are static having
+loads up
+
+0:12:59.300,0:13:02.970
+and then where and that time at is done
+
+0:13:02.970,0:13:06.650
+if finishes loading the Jays on data and
+populates the page
+
+0:13:06.650,0:13:11.190
+if we waited for data torrent or page
+and then down in the tag does so that we
+
+0:13:11.190,0:13:13.140
+could pass the data into that
+
+0:13:13.140,0:13:17.890
+now method than the entire thing would
+have been lately when they've seen the
+
+0:13:17.890,0:13:19.779
+contacts header show up first
+
+0:13:19.779,0:13:24.029
+in this case maybe that's not a big deal
+but if you have a tag
+
+0:13:24.029,0:13:27.990
+that encapsulates a larger application
+you know what these things to happen
+
+0:13:27.990,0:13:28.839
+independently
+
+0:13:28.839,0:13:33.210
+but say for example we had a form that
+could add additional names
+
+0:13:33.210,0:13:36.710
+and a pen them to the existing last
+
+0:13:36.710,0:13:40.660
+we can set this up so that the form is
+active and we can do things locally
+
+0:13:40.660,0:13:44.450
+well it's going out to the service and
+grabbing the existing data for us and it
+
+0:13:44.450,0:13:46.050
+had mergers list together
+
+0:13:46.050,0:13:49.820
+when we get a response I hope you found
+this video helpful
+
+0:13:50.420,0:13:53.000
+thanks for watching and please feel free
+to leave feedback
+

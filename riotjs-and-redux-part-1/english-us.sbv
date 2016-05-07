@@ -1,0 +1,227 @@
+0:00:00.000,0:00:04.819
+hello my name is in Japan sparse and in
+this video series we're going to go over
+
+0:00:04.819,0:00:09.190
+how you can use the redox library what's
+right Jas redux estate management
+
+0:00:09.190,0:00:13.150
+library that is gaining a lot of
+traction and they react community but
+
+0:00:13.150,0:00:16.080
+luckily and is not specifically tied to
+react
+
+0:00:16.080,0:00:20.820
+we can use it with right chest with
+relative ease will cover using redux and
+
+0:00:20.820,0:00:25.529
+rights as together here but for much
+more detailed look at redux itself you
+
+0:00:25.529,0:00:31.269
+can't beat the videos that redux is
+creator Dan a remote if you're not
+
+0:00:31.269,0:00:34.809
+familiar with right say yes yet you
+might want to check out my previous
+
+0:00:34.809,0:00:38.149
+videos to get started in this video
+
+0:00:38.860,0:00:44.800
+well covered getting redux installed
+configuring the Reebok store using the
+
+0:00:44.800,0:00:50.420
+story to get state into rage as
+components and the videos to follow will
+
+0:00:50.420,0:00:55.719
+cover dispatching actions handling those
+actions through reducer putting it all
+
+0:00:55.719,0:01:01.250
+together to update right based on
+actions in other tax let's get started
+
+0:01:01.250,0:01:06.689
+with these examples were gonna pick up
+where we left off in the riot with
+
+0:01:06.689,0:01:11.250
+Westpac introduction in order to use
+redux we're gonna need to install that
+
+0:01:11.250,0:01:24.970
+module so I'm going to start running an
+MPN in scale safe redux and now that we
+
+0:01:24.970,0:01:32.030
+have the redox module installed to use
+our and p.m. script to run with tax debt
+
+0:01:32.030,0:01:34.360
+server
+
+0:01:34.360,0:01:37.360
+taking NPM err on death
+
+0:01:42.110,0:01:46.480
+we look at the browser and refresh just
+to make sure pages still being served by
+
+0:01:46.480,0:01:51.190
+text ad server everything checks out so
+we're ready to get started
+
+0:01:53.750,0:01:57.370
+so it's redux and starred first thing
+we're gonna do is we're going to create
+
+0:01:57.370,0:02:03.120
+a reference to it in our index JSP file
+gonna add bar redux equals require redux
+
+0:02:03.120,0:02:08.660
+that's gonna pull the redox library into
+our file and now that we have redux
+
+0:02:08.660,0:02:12.560
+next thing we need to do is create a
+producer function so no adverse producer
+
+0:02:12.560,0:02:17.040
+to set it equal function that takes two
+arguments the first one its state the
+
+0:02:17.040,0:02:21.959
+second one is action producer needs to
+always return a state so for now we're
+
+0:02:21.959,0:02:26.280
+just gonna turn the state that's past 10
+so make no modifications will return in
+
+0:02:26.280,0:02:30.650
+new objects just pass it right on
+through because we're running web pack
+
+0:02:30.650,0:02:37.700
+with Babel we can use a mere six sorry
+yes 2015 cent tax so I can set a default
+
+0:02:37.700,0:02:41.900
+value to state right inside the
+arguments for the function so I said
+
+0:02:41.900,0:02:46.720
+that's equal an object and we're gonna
+give it a title properly with a default
+
+0:02:46.720,0:02:52.180
+value of default title now that we have
+the reducer we can use that create a
+
+0:02:52.180,0:02:57.560
+store and the store is basically going
+to contain our state for application so
+
+0:02:57.560,0:03:04.170
+to do that will cause increased or
+method on the redox object and more sign
+
+0:03:04.170,0:03:06.799
+its value back into redux
+
+0:03:06.799,0:03:11.670
+store gonna take my document I add event
+listener line I'm just gonna break that
+
+0:03:11.670,0:03:16.160
+down into multiple lines that we have
+some room to work and I want to take
+
+0:03:16.160,0:03:20.660
+this redux store object that I just
+created a pass it into my sample output
+
+0:03:20.660,0:03:28.310
+tag gonna do that by passing an object
+and I'm gonna sign a store property on
+
+0:03:28.310,0:03:34.220
+that object the value of redox store now
+we're taking that story that redux
+
+0:03:34.220,0:03:39.070
+created with a reducer we're passing
+into our rights so that we can use it
+
+0:03:39.070,0:03:44.010
+now they're passing that in there let's
+go into our sample output that tag file
+
+0:03:44.010,0:03:49.239
+and make some changes to replace the
+title with a call to this dot dot store
+
+0:03:49.239,0:03:53.829
+and that's gonna give us that redox
+store object that we just passed and and
+
+0:03:53.829,0:03:58.190
+the store object has a get state method
+on it that allows us to get access to
+
+0:03:58.190,0:04:02.989
+the state returning former reducer and
+because that state has a title property
+
+0:04:02.989,0:04:04.670
+we can call that
+
+0:04:04.670,0:04:10.750
+and that should assign the h1 value to
+the title that we pass back from her
+
+0:04:10.750,0:04:19.470
+state we look at index NJS that is the
+value to fall title and since we're
+
+0:04:19.470,0:04:24.370
+running backs dead server it's been
+rebuilding with each change so we should
+
+0:04:24.370,0:04:28.500
+be able to go into a browser refresh and
+see this state
+
+0:04:29.070,0:04:34.720
+turning that default title value and our
+tag is using it just bypassing the story
+
+0:04:34.720,0:04:39.380
+in to tack we haven't done anything
+super exciting at this point but we have
+
+0:04:39.380,0:04:44.430
+laid the groundwork and we know that we
+have a Redux or producer and our tags
+
+0:04:44.430,0:04:48.820
+all connected wired up properly so next
+time we can build on that we can start
+
+0:04:48.820,0:04:53.880
+introducing the concept of actions thank
+you for watching hope you found this
+
+0:04:53.880,0:04:57.720
+video helpful and be sure to keep an eye
+out for the next video in the series
+

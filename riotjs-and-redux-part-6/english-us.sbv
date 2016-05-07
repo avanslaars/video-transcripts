@@ -1,0 +1,884 @@
+0:00:00.000,0:00:04.549
+welcome to another installment of the
+riot JS and redux video series if
+
+0:00:04.549,0:00:08.290
+you haven't been following along it will
+probably be much easier to start at the
+
+0:00:08.290,0:00:15.969
+beginning since each video building
+where the previous video that staff and
+
+0:00:15.969,0:00:20.230
+remember to get up to speed on Redux
+itself you really can't be there had I O
+
+0:00:20.230,0:00:25.900
+videos by redox as creator Dan Abrams us
+when we left off last time we had added
+
+0:00:25.900,0:00:29.990
+the ability to add a news has to our
+list but a task list really isn't very
+
+0:00:29.990,0:00:34.399
+useful for can check things off so this
+time we're going to look at adding check
+
+0:00:34.399,0:00:38.379
+boxes and updating our items so the
+first thing we're gonna do is we're
+
+0:00:38.379,0:00:42.700
+gonna go into our task list ID tag file
+and we're gonna add an input to each
+
+0:00:42.700,0:00:47.399
+item in early and that's how it will be
+a checkbox never gonna give it and I D
+
+0:00:47.399,0:00:53.449
+task that I D so we'll take the idea
+value that comes back for API will use
+
+0:00:53.449,0:01:00.270
+that as our input elements I D actually
+gonna add a checked attribute I'm gonna
+
+0:01:00.270,0:01:05.250
+pass that an expression and value that
+expression is going to be task that is
+
+0:01:05.250,0:01:09.950
+complete and at this point we don't have
+any is complete properties are tasks so
+
+0:01:09.950,0:01:15.280
+those all the defaults to false and a
+check boxes will not be checked so at
+
+0:01:15.280,0:01:21.990
+this stage we can go into your browser
+then we can refresh each other items
+
+0:01:21.990,0:01:25.710
+should show up with the checkbox
+checkbox is going to do anything yet
+
+0:01:25.710,0:01:31.470
+let's go back into task list and I want
+to add on changes to the input and I'm
+
+0:01:31.470,0:01:35.100
+gonna give that a value of handle check
+which is a function will create right
+
+0:01:35.100,0:01:39.650
+here in our task list file so I had some
+script X and handle check which is going
+
+0:01:39.650,0:01:44.570
+to accept the event we're gonna have
+this function call this top stud handle
+
+0:01:44.570,0:01:48.259
+check which is going to be a function
+its past 10 from our to-do app tag
+
+0:01:48.259,0:01:53.009
+you're gonna pass the events target dot
+I D which is gonna get the idea
+
+0:01:53.009,0:01:58.850
+attribute of the check box and a boolean
+value that tells this handle check
+
+0:01:58.850,0:02:02.759
+function whether this is checked or
+unchecked you know it's going to the to
+
+0:02:02.759,0:02:04.310
+do at tank
+
+0:02:04.310,0:02:10.099
+and we're gonna add a handle task
+completion change function and that's
+
+0:02:10.099,0:02:14.590
+going to accept an idea and a flag
+holder is complete and in that function
+
+0:02:14.590,0:02:20.370
+I'm gonna call stored at dispatch
+actions . Tuggle complete and I'm gonna
+
+0:02:20.370,0:02:25.420
+pass along the idea and the is complete
+boolean value that this action doesn't
+
+0:02:25.420,0:02:31.269
+exist yet we'll get to that moment in
+our task list haag we want to pass in
+
+0:02:31.269,0:02:35.940
+the handle check attribute Thanksgiving
+a reference to the function we just
+
+0:02:35.940,0:02:41.549
+created said this is going to wire up
+our check box change event to passer to
+
+0:02:41.549,0:02:46.600
+this function which will then handled
+the store dispatch call so in actions
+
+0:02:46.600,0:02:52.530
+that Jas we're gonna scroll to the
+bottom and we're gonna at Otago complete
+
+0:02:52.530,0:02:54.160
+action creator
+
+0:02:54.160,0:02:59.010
+except except that I T is complete and
+total complete is going to return a
+
+0:02:59.010,0:03:04.260
+function as a Redux don't function so
+it's good except dispatching get state
+
+0:03:04.260,0:03:09.070
+as arguments in this function we're
+gonna do an XHR request and for this
+
+0:03:09.070,0:03:13.230
+request rather than doing it put in
+passing the entire task action we're
+
+0:03:13.230,0:03:17.769
+gonna call patch and we're gonna call
+patch against the URL that specific to
+
+0:03:17.769,0:03:22.510
+the task that we're changing and we're
+going to pass an updated value for is
+
+0:03:22.510,0:03:28.290
+complete so this is gonna have to be a
+call to look at those three thousand /
+
+0:03:28.290,0:03:34.780
+tasks / whatever our task ideas so in
+order to accomplish that we could
+
+0:03:34.780,0:03:40.730
+concatenate the string by calling
+localhost 3,000 task and and just using
+
+0:03:40.730,0:03:45.680
+the + operator to add the idea value
+that's passenger function on to the end
+
+0:03:45.680,0:03:52.690
+of that URL but a better option is to
+use the ES 2015 stranger police and
+
+0:03:52.690,0:03:58.829
+simpler syntax so we're gonna wrap our
+string impact X I'm gonna pants in this
+
+0:03:58.829,0:04:04.299
+dollar signed double curly briefs and
+then inside the curly braces we can pass
+
+0:04:04.299,0:04:10.200
+in RI devalue so we pass and I D which
+comes from the functions arguments in
+
+0:04:10.200,0:04:14.659
+here and this is going to create our
+string that are mapped to localhost /
+
+0:04:14.659,0:04:15.590
+tasks
+
+0:04:15.590,0:04:22.669
+/ one or two or whatever that I D value
+is now that we have that setup we also
+
+0:04:22.669,0:04:28.110
+need our request content type better so
+we're passing content aight applications
+
+0:04:28.110,0:04:34.260
+/ JSON and we'll set up a request onload
+function to handle the response from
+
+0:04:34.260,0:04:37.100
+this request and we send a request
+
+0:04:37.100,0:04:41.389
+we're gonna pass that Jason that string
+if I almost Ring of Fire an object that
+
+0:04:41.389,0:04:46.340
+has our is complete property with her is
+complete value and in our onload
+
+0:04:46.340,0:04:51.870
+function Aladdin if statement so that we
+can respond properly to successful
+
+0:04:51.870,0:04:56.229
+requests and we get a successful request
+for going to dispatch an action and that
+
+0:04:56.229,0:05:01.260
+action is going to be completely changed
+and we're gonna pass along the I D and
+
+0:05:01.260,0:05:04.940
+the is complete Boolean we don't have a
+complete change the action created yet
+
+0:05:04.940,0:05:09.830
+so let's create it so create function
+complete change will pass an idea and is
+
+0:05:09.830,0:05:14.539
+complete and incomplete change is gonna
+reach her in action object with a type
+
+0:05:14.539,0:05:19.750
+test completion changed the data
+property with an object that represents
+
+0:05:19.750,0:05:26.700
+our task updates or have the task I D
+and that new is complete value now that
+
+0:05:26.700,0:05:32.110
+our action creator set up let's update
+or juicer to handle this case back into
+
+0:05:32.110,0:05:38.000
+indexed ijs travel at a case for the
+test completion changed action and this
+
+0:05:38.000,0:05:41.460
+one's gonna be a little more complicated
+than what we've done so far because we
+
+0:05:41.460,0:05:45.900
+need to take a specific item out of the
+list update it and return to bring in
+
+0:05:45.900,0:05:50.310
+new state that represents the existing
+state with that change in its original
+
+0:05:50.310,0:05:54.660
+place so the first thing we're gonna do
+is we're going to use the past and I D
+
+0:05:54.660,0:06:00.050
+from action that data and we're going to
+get the tasks index in our tasks array
+
+0:06:00.050,0:06:05.260
+so create a variable task index and
+we're gonna sign it to state that test .
+
+0:06:05.260,0:06:09.580
+find index keep in mind that fine index
+isn't necessarily supported on all
+
+0:06:09.580,0:06:13.660
+browsers depends on what you have to
+support but you can grab a utility
+
+0:06:13.660,0:06:17.430
+library such as low dash where there
+will be an alternative that will provide
+
+0:06:17.430,0:06:21.889
+the same functionality find indexes
+going to take a function and that's
+
+0:06:21.889,0:06:25.760
+going to go through our task array the
+first time that function returns a true
+
+0:06:25.760,0:06:28.240
+that will be the index the country
+
+0:06:28.240,0:06:33.210
+and now that we have the task index need
+to create a new array with the updated
+
+0:06:33.210,0:06:39.139
+task in its original place and that
+updated task has to have its new is
+
+0:06:39.139,0:06:45.180
+complete value so we're gonna start by
+creating the new tasks are ranked I'm
+
+0:06:45.180,0:06:50.199
+going to start with a call to state that
+tasks dots lace we're gonna pass lights
+
+0:06:50.199,0:06:56.080
+0 and our task index with this is gonna
+do is return a new array with the values
+
+0:06:56.080,0:07:04.770
+from 0 up to the index from our current
+tests so far task index is zero just
+
+0:07:04.770,0:07:11.259
+return an empty array and then we're
+going to use can can to add are updated
+
+0:07:11.259,0:07:19.490
+task into disarray and then we're going
+to use another call to concat to add the
+
+0:07:19.490,0:07:25.620
+rest of the rates of the end so the
+second can catch call will cost eight
+
+0:07:25.620,0:07:32.520
+that has such slice and basically from
+one after the task index to the end of
+
+0:07:32.520,0:07:38.930
+the Iraq for our target item we're gonna
+use object that a sign I wanna take the
+
+0:07:38.930,0:07:42.150
+item from our tests array
+
+0:07:42.150,0:07:48.520
+our target index and we're going to
+merge it with our is complete property
+
+0:07:48.520,0:07:54.400
+into a new object and that gets passed
+back into can cat so there's new tasks
+
+0:07:54.400,0:08:00.889
+array will represent our newly updated
+so that takes care of our to-do items
+
+0:08:00.889,0:08:04.620
+two and three and at the end of
+everything we want to take our entire
+
+0:08:04.620,0:08:09.389
+state merged into a new object with the
+updated tasks array and returned that
+
+0:08:09.389,0:08:14.750
+former reducer and to make sure this can
+run I'm gonna go back to actions that
+
+0:08:14.750,0:08:20.110
+Jas and I'm gonna expose our action
+creator
+
+0:08:20.110,0:08:33.350
+exports that title complete your browser
+and refresh
+
+0:08:33.350,0:08:39.950
+should be able to update and we'll see
+JSON that it's added that is complete
+
+0:08:39.950,0:08:44.860
+flag to both items they were checked
+they go back to the browser and uncheck
+
+0:08:44.860,0:08:50.070
+one of those items I can see again that
+the update took place now we have this
+
+0:08:50.070,0:08:53.710
+working but there's a better way to rate
+this code so let's go back to a reducer
+
+0:08:53.710,0:08:58.160
+and censoring our code through battle
+with Webtech we can take advantage of
+
+0:08:58.160,0:09:02.150
+some syntax that'll make this look a
+little bit nicer so let's get rid of our
+
+0:09:02.150,0:09:08.770
+comments just a clean this up a bit and
+I want to take my call to new tasks
+
+0:09:08.770,0:09:15.320
+where I'm using canned cat and I'm gonna
+come in town so we had it for reference
+
+0:09:15.320,0:09:21.690
+and I'm gonna create a new variable new
+tasks and I'm gonna set at equanimity
+
+0:09:21.690,0:09:26.690
+Iraq and inside that a rayon gonna make
+my same call to state that has taught
+
+0:09:26.690,0:09:34.470
+slice from in Dec 02 whatever might ask
+indexes and I'm going to tack on three
+
+0:09:34.470,0:09:38.880
+periods to the beginning of that this is
+the spread operator so this basically
+
+0:09:38.880,0:09:43.550
+says take whatever this array is and
+spread it out into its individual values
+
+0:09:43.550,0:09:51.630
+so my rail now have individual items
+returned from test that slice and then
+
+0:09:51.630,0:09:59.160
+my next year will be my updated item
+based on task index and I can use that
+
+0:09:59.160,0:10:03.420
+spread operator one more time to attack
+the items from the rest of the array
+
+0:10:03.420,0:10:08.800
+into this new Iraq into work with either
+code I prefer this I think it's a little
+
+0:10:08.800,0:10:15.270
+more concise little bit easier to read
+and if we go back to our browser we can
+
+0:10:15.270,0:10:24.480
+verify that this still works I just
+check all the items and take a look at
+
+0:10:24.480,0:10:31.920
+D-day jason is complete has been created
+and Mark true on all of this I don't
+
+0:10:31.920,0:10:43.790
+to go back into the browser I can set
+the item's caused by unchecking the code
+
+0:10:43.790,0:10:49.570
+and just keep the new refactored version
+of new tasks so far we've only focus on
+
+0:10:49.570,0:10:55.300
+the happy path when everything goes
+right with our API you should handle
+
+0:10:55.300,0:10:59.790
+errors for all of your API calls but
+we're going to focus on an error that
+
+0:10:59.790,0:11:06.310
+occurs when we mark an item complete and
+we get an error back from the server and
+
+0:11:06.310,0:11:10.800
+the reason we're going to look at this
+one specifically is that is a check the
+
+0:11:10.800,0:11:14.350
+box and there's some kind of error on
+the server
+
+0:11:14.350,0:11:18.620
+the update is gonna happen we're not
+going to update or Steve but the check
+
+0:11:18.620,0:11:23.970
+box is gonna remain checked so we need
+to uncheck the checkbox if we get an
+
+0:11:23.970,0:11:27.940
+error back just to make sure that are
+you I actually represents the state of
+
+0:11:27.940,0:11:32.399
+our application based on a response from
+the server so I'm gonna use a tool
+
+0:11:32.399,0:11:36.890
+called Charles that will allow me to
+basically fake a 500 error from the
+
+0:11:36.890,0:11:41.019
+server setting up charles is little bit
+outside the scope of this video but
+
+0:11:41.019,0:11:46.649
+maybe I'll do one in the future but for
+now I'm just gonna open up my console
+
+0:11:46.649,0:11:55.160
+and I set it up so that I get an error
+when I check the box on record video and
+
+0:11:55.160,0:11:58.920
+you'll see that I get a 500 error back
+from this patch when that happens both
+
+0:11:58.920,0:12:04.390
+when I check it when I am so we need to
+update our producer I'm sorry we need
+
+0:12:04.390,0:12:10.670
+out there action creator to account for
+this error and reset the UI to represent
+
+0:12:10.670,0:12:18.709
+the current state of the application so
+I'm going to actions that Jas and in my
+
+0:12:18.709,0:12:20.750
+title complete function
+
+0:12:20.750,0:12:27.019
+hadn't else to this if statement and in
+my else I'm going to dispatch the same
+
+0:12:27.019,0:12:32.240
+complete changed action that I dispatch
+from the successful response but I'm
+
+0:12:32.240,0:12:36.660
+going to negate the value of is complete
+and it's basically go through update my
+
+0:12:36.660,0:12:42.140
+state and forced the tagged refresh so
+that my check box instead of remaining
+
+0:12:42.140,0:12:43.360
+checked
+
+0:12:43.360,0:12:48.350
+unchecked itself in the case of an era
+let's take a look at that in the browser
+
+0:12:48.350,0:12:55.019
+so we still have Charles running the
+fakers 500 error refresh to make sure my
+
+0:12:55.019,0:13:04.170
+updated JavaScript is loaded when I
+check record video see that I get an
+
+0:13:04.170,0:13:12.339
+error but it's also dispatched you might
+ask employees changed but then when it
+
+0:13:12.339,0:13:18.060
+is completed fast and the check boxes
+and checked immediately after checking
+
+0:13:18.060,0:13:20.860
+it now this isn't super user friendly
+
+0:13:20.860,0:13:26.320
+whoever check that checkbox has no idea
+what has happened so let's add an error
+
+0:13:26.320,0:13:29.850
+message so to do that first thing I'm
+going to do is going to go into Maytag
+
+0:13:29.850,0:13:38.060
+directory and I'm gonna create a new
+file error message that tank and as with
+
+0:13:38.060,0:13:42.970
+any tags I'll going to create a route
+tags and myself put our message was
+
+0:13:42.970,0:13:48.089
+clear that in a div we're going to get
+our message through an attribute on the
+
+0:13:48.089,0:13:52.779
+tag when we reference it so called this
+message and we need an attribute to
+
+0:13:52.779,0:13:58.240
+control our visibility so throw a show
+attribute on the div and we're gonna
+
+0:13:58.240,0:14:03.130
+need to pass something into that
+expression will also create an attribute
+
+0:14:03.130,0:14:07.930
+when we reference the tag cloud is error
+and that would get us through this stops
+
+0:14:07.930,0:14:13.220
+so it's had this error message tag to
+our to do at tank and we're gonna need
+
+0:14:13.220,0:14:17.250
+to give that a message attribute for now
+was hard code test message in there just
+
+0:14:17.250,0:14:21.810
+to make sure this is working and we're
+also gonna need the is era and will pass
+
+0:14:21.810,0:14:26.329
+this true for now so that displays when
+we tested and make sure that works let's
+
+0:14:26.329,0:14:30.870
+go to our index ijs file and add require
+statement and now there should be
+
+0:14:30.870,0:14:37.949
+included in our bundle let's go back to
+the browser refresh your page and we
+
+0:14:37.949,0:14:42.329
+should see our error message tag being
+displayed because we hard coded in our
+
+0:14:42.329,0:14:47.440
+message and our visibility at review so
+let's make it work for real so in our
+
+0:14:47.440,0:14:49.580
+actions digest file
+
+0:14:49.580,0:14:56.150
+we're gonna add an action creator called
+show error and show airs going to accept
+
+0:14:56.150,0:15:01.840
+a message and we're gonna return an
+object with the type show error and a
+
+0:15:01.840,0:15:06.280
+dad of property with the value of the
+message so I went to handle this show
+
+0:15:06.280,0:15:11.860
+error action in our reducer so let's go
+back to index IHS and inner reducer will
+
+0:15:11.860,0:15:18.390
+add a case for the show air action and
+in this case will return object that
+
+0:15:18.390,0:15:23.920
+assign their existing state plus an
+object that has or is there an error
+
+0:15:23.920,0:15:29.720
+message properties merged into a new
+object returned as our updated state and
+
+0:15:29.720,0:15:33.990
+now that our producer set up to handle
+this let's go into our to-do app tank
+
+0:15:33.990,0:15:39.660
+update is hard coded values that we put
+in sort of place our message with an
+
+0:15:39.660,0:15:45.840
+expression expression is going to take
+this done state error message and we
+
+0:15:45.840,0:15:49.870
+have crews are hard coded value for his
+error at your place that with a call in
+
+0:15:49.870,0:15:54.610
+this state is error and WeatherTech
+properly configured let's go back to
+
+0:15:54.610,0:16:01.350
+actions such a US and update our toggle
+complete action creator to dispatch our
+
+0:16:01.350,0:16:07.100
+show error action so this patch show air
+and will pass in the value eighty-eight
+
+0:16:07.100,0:16:12.550
+error and let's take a look at that back
+in the browser and go to refresh their
+
+0:16:12.550,0:16:16.520
+error message tag should be hidden by
+the phone and I'm gonna check on record
+
+0:16:16.520,0:16:21.480
+video and I'm gonna get my 500 error
+back its gonna show my error message
+
+0:16:21.480,0:16:26.460
+will check back stays where it was good
+except now the error just stays forever
+
+0:16:26.460,0:16:31.630
+let's take care of that setback and
+actions that Jas gonna create an action
+
+0:16:31.630,0:16:39.120
+creator Haider message so create an
+empty function high terror and this is
+
+0:16:39.120,0:16:43.900
+going to return an action object with
+the type property of high terror expose
+
+0:16:43.900,0:16:50.750
+high terror on our exports to the TAV
+actions that Jas will add the hider
+
+0:16:50.750,0:16:54.910
+function as part of the export and as
+always we need to handle this case in a
+
+0:16:54.910,0:16:58.140
+reducer so the back to index ijs
+
+0:16:58.140,0:17:02.610
+and I'm going to add a case for high
+terror we're gonna handle that case
+
+0:17:02.610,0:17:07.270
+buries her earning an updated version of
+the state and this time we said is there
+
+0:17:07.270,0:17:09.870
+a false on error message to an empty
+string
+
+0:17:09.870,0:17:16.209
+gonna go into the error message tag I'm
+going to wire up hyperlinked that will
+
+0:17:16.209,0:17:21.530
+trigger hiding the message so as any
+traffic goes nowhere with a non click
+
+0:17:21.530,0:17:27.050
+handler points to a function called hide
+message will add the hyde message
+
+0:17:27.050,0:17:31.950
+function to a set of script at the
+bottom of arabists tag number to call
+
+0:17:31.950,0:17:36.580
+this dot dot dot hide and hide is going
+to be a function that's passed into the
+
+0:17:36.580,0:17:40.220
+error message tag from to-do app
+
+0:17:40.220,0:17:47.429
+to back in to do a tank will add height
+error message function and Haider
+
+0:17:47.429,0:17:53.030
+message will call stored at dispatch and
+Cassidy and actions . high terror so now
+
+0:17:53.030,0:17:58.070
+we need to pass this in as our height
+attribute on the error message tank go
+
+0:17:58.070,0:18:03.900
+back up here by our height attribute
+pass in Hyderabad message and we can go
+
+0:18:03.900,0:18:11.100
+back to our browser refresh the trigger
+that error you get my message you'll see
+
+0:18:11.100,0:18:16.179
+that I have my link here and click that
+and it hurts my message so let's take
+
+0:18:16.179,0:18:20.090
+the Saracen area one step further and
+make this is slightly better experience
+
+0:18:20.090,0:18:24.240
+for end user rather than forcing them to
+click the X to get out of the error
+
+0:18:24.240,0:18:28.039
+message will hide it after a set amount
+of time to do that we're going to go
+
+0:18:28.039,0:18:33.950
+into action such a yes we're going to
+add a new async action Creator will call
+
+0:18:33.950,0:18:38.510
+that temporary message and will have to
+accept message has an argument
+
+0:18:38.510,0:18:44.120
+other racing action creators return a
+function that accepts dispatch get state
+
+0:18:44.120,0:18:48.120
+as arguments and we're gonna call
+dispatch show air we're gonna pass the
+
+0:18:48.120,0:18:53.200
+message through and now to handle hiding
+the error message or an asset timeout
+
+0:18:53.200,0:19:00.320
+timeout to one second hand in that
+setTimeout we're gonna call dispatch to
+
+0:19:00.320,0:19:05.620
+higher error now only get an error
+message to show up immediately and after
+
+0:19:05.620,0:19:09.960
+a second message should be hidden if we
+haven't been there already and now has
+
+0:19:09.960,0:19:15.690
+replaced our call to show error with a
+called a temporary message so in our
+
+0:19:15.690,0:19:20.870
+toggle complete function where we get
+the error response replace that dispatch
+
+0:19:20.870,0:19:26.799
+and call temporary message instead show
+error and if we go into a browser and
+
+0:19:26.799,0:19:34.730
+refresh we should be able to click
+Record a video message and after a
+
+0:19:34.730,0:19:39.280
+second goes by where messages to Spears
+thank you for watching
+

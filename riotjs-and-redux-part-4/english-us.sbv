@@ -1,0 +1,823 @@
+0:00:00.000,0:00:04.509
+welcome to another installment of the
+right chest and redux video series if
+
+0:00:04.509,0:00:08.260
+you haven't been following along it will
+probably be much easier to start at the
+
+0:00:08.260,0:00:17.140
+beginning since each video builds on
+where the previous video of staff and
+
+0:00:17.140,0:00:21.480
+remember to get up to speed on Redux
+itself you really can't beat ya diode
+
+0:00:21.480,0:00:22.140
+videos
+
+0:00:22.140,0:00:26.970
+paradoxes creator Dan aber muss so far
+everything we've done has been
+
+0:00:26.970,0:00:30.090
+synchronous and that was great for
+getting familiar with how to get the
+
+0:00:30.090,0:00:34.050
+redox or wired up their view but in real
+application we're gonna need to make
+
+0:00:34.050,0:00:37.850
+asynchronous calls to deal with API is
+on our server that's what the rest of
+
+0:00:37.850,0:00:41.840
+the series is going to focus on will be
+picking up where the last video left off
+
+0:00:41.840,0:00:46.110
+but we'll be expanding our example
+beyond a single form input and output so
+
+0:00:46.110,0:00:50.420
+let's remove the previous tags from our
+index HTML and clean up some of the code
+
+0:00:50.420,0:00:55.120
+around those tags so that we can focus
+on a new functionality so to start off
+
+0:00:55.120,0:00:59.920
+I'm gonna go ahead and close the title
+form tag and protect files will be
+
+0:00:59.920,0:01:07.560
+looking at those anymore I'm gonna go
+into index HTML we're going to pick
+
+0:01:07.560,0:01:14.640
+played a horn the H are in our sample
+output remove those and then indexed ijs
+
+0:01:14.640,0:01:18.720
+we're not gonna need these to require
+statements anymore so I'll take those
+
+0:01:18.720,0:01:25.409
+out and then in our reducer we can
+remove the case for change title we can
+
+0:01:25.409,0:01:32.270
+go into actions that Jas and we can
+remove the exports for change title and
+
+0:01:32.270,0:01:37.560
+the change table action creator now the
+cleanup stun we're gonna need to install
+
+0:01:37.560,0:01:42.799
+couple more MPN modules the first we're
+gonna install is the Redux dunk
+
+0:01:42.799,0:01:48.329
+middleware and what this is going to do
+is give us the ability to create action
+
+0:01:48.329,0:01:52.740
+creators that instead of just returning
+a static object they can reach her at a
+
+0:01:52.740,0:01:58.000
+function and that function is going to
+be the key to allowing us to let us
+
+0:01:58.000,0:02:04.750
+continue to run in a synchronous manner
+while we do asynchronous work within the
+
+0:02:04.750,0:02:08.660
+function that those action creators are
+going to return and we'll see how this
+
+0:02:08.660,0:02:11.370
+all works once we get everything
+installed and setup
+
+0:02:11.370,0:02:15.590
+so it's going to our terminal and I
+still have the Westpac that server
+
+0:02:15.590,0:02:22.980
+running so I'm just gonna clear that out
+and we're gonna NPM install with the
+
+0:02:22.980,0:02:34.269
+same flag redux dash dunk and so we can
+focus on the front end riot and redux
+
+0:02:34.269,0:02:38.810
+code and we don't have to worry about
+setting up our backend server with
+
+0:02:38.810,0:02:42.440
+express how happy I ask something like
+that we're gonna install another and
+
+0:02:42.440,0:02:52.160
+p.m. package called JSON server we're
+gonna install that globally JSON servers
+
+0:02:52.160,0:02:57.340
+gonna do is give us a service within
+point that we can hit based on a static
+
+0:02:57.340,0:03:02.879
+JSON file was so we can create that file
+save in our project set up our test data
+
+0:03:02.879,0:03:07.390
+and the great thing about this is we
+don't do any real set up other than
+
+0:03:07.390,0:03:12.659
+creating the file but we can hit with
+get ready class and get that about we
+
+0:03:12.659,0:03:16.889
+can also post put delete pretty much
+anything you do with a regular service
+
+0:03:16.889,0:03:21.060
+and it's just going to update the file
+so great little utility when you're
+
+0:03:21.060,0:03:26.430
+working on something Friday and you need
+to fix your back and services so that's
+
+0:03:26.430,0:03:31.530
+done installing a good clear that out
+and we're going to create a file on TV
+
+0:03:31.530,0:03:34.530
+that chase on
+
+0:03:35.880,0:03:43.070
+and now that we have this file we're
+gonna go ahead and add some JSON to act
+
+0:03:43.070,0:03:48.670
+as our back-end data so going to create
+the old reliable task application so
+
+0:03:48.670,0:03:52.950
+that again rather than focusing on the
+details of the application we can keep
+
+0:03:52.950,0:03:58.500
+our focus on the right and redux parts
+to make sure the DVD JSON is saved
+
+0:03:59.040,0:04:02.010
+we're gonna go back into a terminal and
+we're gonna go ahead and start up the
+
+0:04:02.010,0:04:11.980
+server for that so I'm gonna do that by
+typing in JSON dash server and the name
+
+0:04:11.980,0:04:16.900
+of our final and when we run this will
+see that this is running at localhost
+
+0:04:16.900,0:04:23.580
+port 3000 and it's showing us that we
+have a resource called tasks in this
+
+0:04:23.580,0:04:30.090
+path so I take this path and I open
+another terminal window I should be able
+
+0:04:30.090,0:04:38.080
+to curl the GET request to that has
+resource and point and it will return
+
+0:04:38.080,0:04:43.750
+that has arrived so in our API is gonna
+respond when we get requests and that's
+
+0:04:43.750,0:04:48.870
+all we need for now so it's gonna clear
+that out and we killed the web dev
+
+0:04:48.870,0:04:55.240
+server so I'm gonna run out again with
+my M him run death command a valid
+
+0:04:55.240,0:04:59.590
+bundle so we can go ahead and get
+started with the new code in the index
+
+0:04:59.590,0:05:03.950
+JSP file we want to add require
+statement to pull in that redux thunk
+
+0:05:03.950,0:05:09.020
+module and because we've introduced this
+redox middle where we're going to have
+
+0:05:09.020,0:05:14.690
+to make some updates to our create store
+functionality that we have down here so
+
+0:05:14.690,0:05:19.500
+I comment out the old one so we have it
+as a reference for now I'm gonna create
+
+0:05:19.500,0:05:24.550
+a new variable create store with
+middleware and this is gonna be set to
+
+0:05:24.550,0:05:28.430
+equal redux not compose which is going
+to take our middleware and it's going to
+
+0:05:28.430,0:05:33.560
+result in a function and in compose
+function we want to call redux is
+
+0:05:33.560,0:05:40.360
+applying middleware method will pass it
+in some redux compose returns a function
+
+0:05:40.360,0:05:47.120
+and that function takes redux is create
+store function and that combination
+
+0:05:47.120,0:05:49.030
+intern returns yet
+
+0:05:49.030,0:05:53.130
+another function and that's what creates
+tour with middleware is gonna going to
+
+0:05:53.130,0:05:57.800
+be so it's going to be the resulting
+function from this entire operation so
+
+0:05:57.800,0:06:02.970
+that we can call that with a reducer and
+will get a Redux store in our previous
+
+0:06:02.970,0:06:10.640
+examples we looked at the Redux stores
+three methods we have get state dispatch
+
+0:06:10.640,0:06:15.080
+and subscribe and when you subscribe to
+get our tags to update any time there
+
+0:06:15.080,0:06:18.570
+was a state change well in this new
+application we're going to use multiple
+
+0:06:18.570,0:06:23.970
+tags and those are all gonna need to
+respond to state updates so rather than
+
+0:06:23.970,0:06:28.550
+having to put this code in every single
+tag we're going to build this new
+
+0:06:28.550,0:06:33.230
+application with the concept of a parent
+container jack and the parent container
+
+0:06:33.230,0:06:37.380
+tag is going to contain all of the other
+tags and makeup application and its
+
+0:06:37.380,0:06:41.320
+gonna be responsible for responding to
+state updates and making sure that all
+
+0:06:41.320,0:06:45.170
+of its child tags get updated so it's
+great that tag now
+
+0:06:47.980,0:06:53.600
+so I'm gonna create a tag on the tax
+folder and I'm going to call it to do
+
+0:06:53.600,0:07:01.250
+dash at that tank and I'm getting given
+its route tags and it's also going to
+
+0:07:01.250,0:07:06.980
+need to set a script acts younger than
+in some actions in my to do at tag so
+
+0:07:06.980,0:07:12.400
+I'm gonna have to require statement that
+pulls in the actions that Jas file I'm
+
+0:07:12.400,0:07:16.670
+also going to create a variable for the
+store which is going to be passed into
+
+0:07:16.670,0:07:22.300
+this tags for the options and then I'm
+gonna add my call to stored at subscribe
+
+0:07:22.300,0:07:29.410
+so that I can respond to state updates
+anytime state changes I want to take
+
+0:07:29.410,0:07:34.010
+that new state and assign it to a
+variable within my tag sewn inside this
+
+0:07:34.010,0:07:35.350
+dot state
+
+0:07:35.350,0:07:40.330
+storied I get state and he stayed up
+there is going to require the attack
+
+0:07:40.330,0:07:46.550
+updates so I recalled in this . update
+any order for both of those this
+
+0:07:46.550,0:07:53.430
+references to work properly in a bind
+that function to this so at this point
+
+0:07:53.430,0:07:59.060
+any time the state update subscribers
+get triggered a call stored at get state
+
+0:07:59.060,0:08:03.800
+to get the newest version of the state
+of sign it into this local state
+
+0:08:03.800,0:08:08.870
+variable and update the tag and that
+update is going to cause this tag and
+
+0:08:08.870,0:08:13.060
+any tags that are referenced inside of
+it to update so that's gonna push those
+
+0:08:13.060,0:08:17.450
+state updates of the way through our
+entire application and the first thing
+
+0:08:17.450,0:08:21.920
+are tagged needs is a tech to render out
+our tests that are coming from that date
+
+0:08:21.920,0:08:28.200
+will be set up and we're going to want
+to display that inside the 20 tag so I'm
+
+0:08:28.200,0:08:34.310
+gonna add this task list tag into the
+body here in our task list tag is gonna
+
+0:08:34.310,0:08:39.880
+take the tasks that it needs to display
+their natural you again this attribute
+
+0:08:39.880,0:08:44.550
+is going to be available within task
+list on the OPs object we're going to
+
+0:08:44.550,0:08:48.680
+pass it an expression and in that
+expression we want to make a call to
+
+0:08:48.680,0:08:53.250
+this dot state which we are signing the
+entire state down and subscribe and
+
+0:08:53.250,0:08:58.860
+we're gonna call tests property on that
+state so we get that updated stage now
+
+0:08:58.860,0:09:00.610
+to get assigned to state down here
+
+0:09:00.610,0:09:04.370
+and that state is ultimately going to
+have a property on a contest that will
+
+0:09:04.370,0:09:09.790
+contain the list that we got our API
+call now that we have the task list tag
+
+0:09:09.790,0:09:15.149
+set up what's going to create that so in
+the tag directory create a new file
+
+0:09:15.149,0:09:22.920
+called task list that tag and just like
+any other tank will go ahead and the
+
+0:09:22.920,0:09:29.110
+route tags first and inside there we
+want to set up UL which in turn is going
+
+0:09:29.110,0:09:35.339
+to contain an ally and we give that a
+lie in each statement and if you
+
+0:09:35.339,0:09:41.060
+remember from previous videos as hell
+right handles loops we're gonna say for
+
+0:09:41.060,0:09:46.519
+each task in the tasks that were passed
+in the options we want to create a new
+
+0:09:46.519,0:09:52.260
+ally element and for now let's just give
+that some taxed so we'll take the name
+
+0:09:52.260,0:09:57.890
+of the task will drop that inside the Li
+so at this point we have a container tag
+
+0:09:57.890,0:10:03.410
+that set up to handle changes in our
+state and we have our task list tag
+
+0:10:03.410,0:10:08.010
+that's going to display our tasks we
+have our fake API set up so now we need
+
+0:10:08.010,0:10:13.920
+the action creator set up so that we can
+make that a sink all to get those tasks
+
+0:10:13.920,0:10:19.240
+from this so we're gonna go into actions
+that Jas and we're gonna create a
+
+0:10:19.240,0:10:24.320
+function called load tasks and that
+function is gonna reach her in a
+
+0:10:24.320,0:10:29.970
+function okay this is where their redux
+thank nowhere comes into play and this
+
+0:10:29.970,0:10:35.199
+function that were returning is gonna
+get past and the dispatch and get state
+
+0:10:35.199,0:10:40.880
+methods from our store inside that
+function we can make our XHR request so
+
+0:10:40.880,0:10:46.610
+requests are open we want to make a GET
+request to that localhost 3000 / tasks
+
+0:10:46.610,0:10:50.490
+that we looked at earlier and then we're
+going to handle the result of that
+
+0:10:50.490,0:10:55.940
+through the request I onload function
+and we want to send the request so in
+
+0:10:55.940,0:11:00.209
+the onload I'm going to end in his
+statement and this way we only respond
+
+0:11:00.209,0:11:07.500
+to valid or successful status codes
+gonna take that request text and we want
+
+0:11:07.500,0:11:12.020
+to parse the JSON and assigned to a
+variable called data and now we want to
+
+0:11:12.020,0:11:13.270
+make 'cause dispatch
+
+0:11:13.270,0:11:21.650
+which we got past him by redux and we
+went to call tasks loaded with our data
+
+0:11:21.650,0:11:28.540
+value tasks loaded is an action creator
+that we still need to create that's
+
+0:11:28.540,0:11:33.050
+going to create that now so we'll create
+the empty function tasks loaded and
+
+0:11:33.050,0:11:38.360
+that's gonna take Artest's array and we
+want to return an action object when
+
+0:11:38.360,0:11:44.240
+this one will give it a type tests
+loaded ammo Pasadena data property with
+
+0:11:44.240,0:11:49.520
+a value test and we're gonna need to be
+able to call load tasks from outside of
+
+0:11:49.520,0:11:53.600
+our actions that Jas file so we're going
+to expose that in the module that
+
+0:11:53.600,0:11:57.920
+expert's statement at the top of our
+final and now let's go update or reduce
+
+0:11:57.920,0:11:59.030
+her to handle this
+
+0:11:59.030,0:12:03.190
+the first thing I want to do is update
+my default state where I have the old
+
+0:12:03.190,0:12:09.010
+titled assault title update that to be
+tasked with an empty array so are
+
+0:12:09.010,0:12:13.340
+starting state is going to be an empty
+set of tasks now he can add the case for
+
+0:12:13.340,0:12:18.400
+action creator that returned has
+exploded and then of course we need to
+
+0:12:18.400,0:12:22.320
+handle that so we're gonna just like we
+did before returning to object that a
+
+0:12:22.320,0:12:28.230
+sign the take our existing state and any
+new properties for that state merge them
+
+0:12:28.230,0:12:32.550
+into a new object and reach her in that
+from a reducer and now to make sure all
+
+0:12:32.550,0:12:36.200
+of this will work we need to do some
+plumbing so we want to add require
+
+0:12:36.200,0:12:43.150
+statements for our tags right here in
+text i jus and our call to riot
+
+0:12:43.150,0:12:47.710
+we're gonna update that catch all and
+we're just going to mount the to-do app
+
+0:12:47.710,0:12:54.950
+directly and then on our index HTML file
+you need to add our to-do app tag and
+
+0:12:54.950,0:13:01.550
+now we're going to go into our to do at
+tag when I had a call to the tags mount
+
+0:13:01.550,0:13:06.570
+event and I get that an anonymous
+function and in this function of wanna
+
+0:13:06.570,0:13:11.610
+make a call a stored at this patch and I
+wanna call my asynchronous action
+
+0:13:11.610,0:13:16.770
+creator load tasks so this is gonna kick
+off the whole process so in this tag
+
+0:13:16.770,0:13:20.270
+mounts actions . low tasks will be
+called
+
+0:13:20.780,0:13:26.900
+it'll return a function internally that
+function is kinda maker XHR request and
+
+0:13:26.900,0:13:31.130
+when that is done it's going to dispatch
+or other action that's going to go into
+
+0:13:31.130,0:13:35.810
+the reducer gonna replace rnt Alyssa
+tasks with the ones from the API and we
+
+0:13:35.810,0:13:39.720
+should see the task order on the page so
+let's go to our browser and check that
+
+0:13:39.720,0:13:44.810
+out and everything's wired up properly
+we should see these two values displayed
+
+0:13:44.810,0:13:49.450
+so we're loading this data from the JSON
+server node module it's running locally
+
+0:13:49.450,0:13:53.770
+so it's super fast but if there was some
+kind of delay due to network bottleneck
+
+0:13:53.770,0:13:57.120
+for the service being slow for some
+reason we went to indicate that the data
+
+0:13:57.120,0:14:01.630
+is loading and I have a just sit there
+with an empty task list and then
+
+0:14:01.630,0:14:05.190
+suddenly have the test here so let's go
+ahead and set up an artificial delay
+
+0:14:05.190,0:14:10.200
+using a set time out so that we can test
+out and incorporated loading indicator
+
+0:14:10.200,0:14:14.950
+so you're going to actions that Jas
+we're making our XHR request and I'm
+
+0:14:14.950,0:14:19.790
+going to wrap the request on sand and a
+set time out with a delay of two seconds
+
+0:14:19.790,0:14:24.140
+to now go back to the browser and
+refresh the page will set their plank
+
+0:14:24.140,0:14:28.920
+about two seconds and our tasks appear
+so now we have a sufficient delay to
+
+0:14:28.920,0:14:32.470
+test against to set up our indicator
+light said the first thing I want to do
+
+0:14:32.470,0:14:39.000
+is my text directory I'm gonna add a
+file from a leading indicator of loading
+
+0:14:39.000,0:14:43.570
+indicator dye tank and will give loading
+indicator through tags loading dash
+
+0:14:43.570,0:14:47.630
+indicator and I just want a simple
+animated gifs I'm gonna go ahead and
+
+0:14:47.630,0:14:52.440
+grab that for my filesystem an additive
+project so we'll see here I have loading
+
+0:14:52.440,0:14:58.860
+that Jeff it's just a little spinner and
+in my loading indicator tank can add an
+
+0:14:58.860,0:15:02.390
+image source and i cant have it point to
+loading down shift the next thing we
+
+0:15:02.390,0:15:07.070
+need to do is this idea for a show this
+so we're gonna have a show attribute
+
+0:15:07.070,0:15:13.240
+this is one of riots built-in attributes
+and will pass at an expression and that
+
+0:15:13.240,0:15:17.890
+expression is going to be dependent on a
+loading flag that will pass in as
+
+0:15:17.890,0:15:22.250
+natural beauty of the leading indicator
+Tang so access that through this tops
+
+0:15:22.250,0:15:27.850
+and now we have our tag set up and go
+back into indexed ijs when you want to
+
+0:15:27.850,0:15:31.520
+add a required for this will go into our
+
+0:15:31.520,0:15:38.180
+container tank to do add that tag
+loading indicator and again leading
+
+0:15:38.180,0:15:42.920
+indicator is going to rely on a loading
+flag passed in as an attribute
+
+0:15:42.920,0:15:48.190
+surpassing loading with an expression
+and we're gonna reference this starts
+
+0:15:48.190,0:15:52.390
+state DOT is loading and at this point
+this property doesn't exist on our
+
+0:15:52.390,0:15:57.410
+state's 01 we need to go created to by
+default this will just results who
+
+0:15:57.410,0:16:02.250
+falsely value so we're loading indicator
+of this remain hit but we do want to be
+
+0:16:02.250,0:16:08.490
+able to show it and so let's go into our
+actions file and inactions that Jas
+
+0:16:08.490,0:16:13.580
+we're going to add a new function called
+titles loading and toggle voting is
+
+0:16:13.580,0:16:20.770
+gonna take it is loading and unloading
+is going to return an object with a type
+
+0:16:20.770,0:16:25.830
+toggle loading and a data value is
+loading so now we need to go into a
+
+0:16:25.830,0:16:31.590
+reducer and handle this action to back
+and indexed ijs will add a case for
+
+0:16:31.590,0:16:36.200
+toggle loading and in that case we're
+going to use our object that a sign
+
+0:16:36.200,0:16:41.250
+again we're going to take the existing
+state with an updated is loading
+
+0:16:41.250,0:16:45.260
+property and we're going to use the
+action that data value for that then
+
+0:16:45.260,0:16:49.790
+returned that new state and now I'm
+gonna go bad actions that Jas an
+
+0:16:49.790,0:16:54.800
+interlude tasks function we're gonna
+make a call to dispatch with the toggle
+
+0:16:54.800,0:17:00.160
+loading passing at a value of true the
+very beginning of our function that does
+
+0:17:00.160,0:17:04.990
+our exit XHR call and at this point if
+we go back to our browser and we refresh
+
+0:17:04.990,0:17:10.560
+we should see our loading indicator and
+then armed away and our task slowed but
+
+0:17:10.560,0:17:15.920
+are leading indicator just sits there so
+it's going back into our code and fix
+
+0:17:15.920,0:17:16.740
+that
+
+0:17:16.740,0:17:23.140
+so in dhahran load handler we're going
+to make another call the dispatch with
+
+0:17:23.140,0:17:26.940
+toggle loading and we're gonna pass it
+false and now we go back to our browser
+
+0:17:26.940,0:17:33.960
+refresh should the indicator delay and
+we get our tasks and hides we're loading
+
+0:17:33.960,0:17:39.880
+indicator thank you for watching hope
+you found this video helpful and be sure
+
+0:17:39.880,0:17:42.080
+to keep an eye out for the next video in
+the serious
+
