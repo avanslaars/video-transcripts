@@ -149,7 +149,7 @@ but for these examples
 we're going to pre-compile our tags
 
 0:04:02.360,0:04:06.440
-for this we'll use the riot CLIwe installed earlier using NPM
+for this we'll use the riot CLI we installed earlier using NPM
 
 0:04:07.140,0:04:09.860
 we'll start by typing in the riot command
@@ -311,7 +311,7 @@ we should see two different values
 so let's check that out
 
 0:08:13.140,0:08:16.340
-I'll remove the value that I'm passing into moun
+I'll remove the value that I'm passing into mount
 
 0:08:17.060,0:08:20.500
 and then I'm going to give each tag a greet attribute
@@ -329,7 +329,7 @@ now let's say we have a third instance of the hello world tag
 but this time we're not going to give it an attribute value
 
 0:08:44.240,0:08:49.680
-when Ilook at that in the browser, my third instance just says hello and has no name
+when I look at that in the browser, my third instance just says hello and has no name
 
 0:08:49.680,0:08:53.160
 if I go back and pass an object to the mount method again
@@ -440,7 +440,7 @@ and riot will find all of the tag files in that directory and compile them all t
 so let's run the riot command and point it to the tags directory
 
 0:12:12.400,0:12:19.400
-Iwant to make the second argument the name of my output javascript file so that all of my tags end up in a single output
+I want to make the second argument the name of my output javascript file so that all of my tags end up in a single output
 
 0:12:20.980,0:12:27.460
 and when I run this, it'll take all of the tags in the tags directory, compile them into javascript
@@ -470,7 +470,7 @@ now that we've updated that we're also going to need to reference our new tag on
 and we'll need to tell riot to mount our new tag
 
 0:13:16.320,0:13:21.680
-and now that we've done that let's taek a look in the browser and see our new output
+and now that we've done that let's take a look in the browser and see our new output
 
 0:13:25.020,0:13:29.740
 and you'll see that we now have a single input our button that says hello
@@ -479,7 +479,7 @@ and you'll see that we now have a single input our button that says hello
 and the start of a hello message
 
 0:13:33.840,0:13:35.600
-Ican put a value in the form
+I can put a value in the form
 
 0:13:38.520,0:13:42.280
 and when I submit the form it'll update my output message
@@ -542,7 +542,7 @@ save it
 you'll see that our watch recompiles our javascript
 
 0:15:06.780,0:15:08.460
-Ican refresh the browser
+I can refresh the browser
 
 0:15:09.120,0:15:10.220
 type in a name
@@ -563,16 +563,16 @@ you might notice that my output is essentially doing the same thing that my orig
 the nice thing about riot is that it allows us to compose our application by nesting tags
 
 0:15:29.860,0:15:33.240
-so I'm going to replace this h three with my greeting
+so I'm going to replace this h3 with my greeting
 
 0:15:33.700,0:15:36.920
 and pass it an instance of my hello world tag
 
 0:15:45.260,0:15:48.300
-when I save that the watch shoudl recompile it
+when I save that the watch should recompile it
 
 0:15:48.620,0:15:51.480
-and when Igo back to the browser and refresh
+and when I go back to the browser and refresh
 
 0:15:53.300,0:15:55.940
 I can go in here and I can pass it a new name
@@ -596,7 +596,7 @@ the watch recompiles
 and when I refresh, it'll be updated everywhere  I reference hello world including inside of the hello form tag
 
 0:16:23.320,0:16:24.920
-everythign still works
+everything still works
 
 0:16:24.920,0:16:30.760
 and now that hello world tag allows me to make changes in one place and they get cascaded through wherever it's used
@@ -671,7 +671,7 @@ by removing the function
 and the call to this
 
 0:18:00.000,0:18:01.400
-and Ican save this
+and I can save this
 
 0:18:03.380,0:18:04.880
 it'll be recompiled
@@ -735,4 +735,3 @@ and to continue adding to the complexity as the videos progress
 
 0:19:26.580,0:19:32.260
 thanks for watching and if you have any feedback or suggestions I'd love to hear what you have to say
-
